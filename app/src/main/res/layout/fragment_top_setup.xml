@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LoginTopLayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.example.smagionas.redbustickets.TopSetupFragment">
+
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_KTEL_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:textColorHint="@color/colorHint">
+
+        <EditText
+            android:id="@+id/editTextKtelId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prompt_ktel_id"
+
+            android:inputType="text"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorAccent" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_KEY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_KTEL_ID"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:textColorHint="@color/colorHint">
+
+        <EditText
+            android:id="@+id/editTextKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prompt_key"
+            android:inputType="text"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorAccent" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <ImageView
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_KEY"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/placeholder"
+        android:onClick="onDoneSetupClicked"
+        android:src="@mipmap/ic_done_black_24dp" />
+
+    <TextView
+        android:id="@+id/placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_KEY"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_KEY"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_toLeftOf="@+id/placeholder"
+        android:onClick="onClearSetupClicked"
+        android:src="@mipmap/ic_clear_black_24dp" />
+
+
+</RelativeLayout>
