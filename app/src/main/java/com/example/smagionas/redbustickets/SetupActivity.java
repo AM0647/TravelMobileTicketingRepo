@@ -7,11 +7,17 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.URLUtil;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 
 public class SetupActivity extends AppCompatActivity
@@ -19,6 +25,9 @@ public class SetupActivity extends AppCompatActivity
 
     EditText ktelID;
     EditText key ;
+    static String result;
+    BagOfPrimitives obj = new BagOfPrimitives();
+    Gson gson = new Gson();
     //TextView Server_URL;
 
 
@@ -119,7 +128,7 @@ public class SetupActivity extends AppCompatActivity
         if(!(ktelID_input.isEmpty())  &&  !(key_input.isEmpty()))                                                   // Check if fields are empty
         {
 
-            SendDataToServer(ktelID_input,key_input);
+            AuthenticateDevice(ktelID_input,key_input);
 
             {
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);       // Make sure android soft keyboard gets closed
@@ -127,8 +136,17 @@ public class SetupActivity extends AppCompatActivity
             }
 
 
-            Intent intent = new Intent(view.getContext(),SignInActivity.class);                                     // TODO Remove from here
-            startActivity(intent);
+            Boolean IsURL = false;
+            IsURL = URLUtil.isValidUrl(obj.url);
+
+            if(IsURL){
+                Intent intent = new Intent(view.getContext(),SignInActivity.class);
+                startActivity(intent);
+
+            }
+
+
+
 
 
 
@@ -160,13 +178,53 @@ public class SetupActivity extends AppCompatActivity
     }
 
 
-    public void SendDataToServer(final String field1, final String field2){
-
-        // Instantiate the RequestQueue.
+    public void AuthenticateDevice(final String field1, final String field2){
 
 
+        result = "Not  initialized";
+        //Runthread1();
 
-        String url ="http://10.10.1.192/MTRWebSvc/MTRWebService.asmx/GetWebServiceURL";                         //TODO Provide web service url
+
+
+        myThread thread = new myThread(field1,field2);
+        thread.start();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        obj = gson.fromJson(result, BagOfPrimitives.class);
+
+
+
+
+        Toast.makeText(getApplicationContext(), obj.url, Toast.LENGTH_LONG).show();
+
+//        String url ="http://10.10.1.192/MTRWebSvc/MTRWebService.asmx/GetWebServiceURL";                         //TODO Provide web service url
+//
+//        APTMTRWebServiceSoap service = new APTMTRWebServiceSoap();
+//
+//        String result = "Not  initialized";
+//        try {
+//            result = service.GetWebServiceURL("test","1234");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        try {
+//            result = service.GetWebServiceURL("test","1234");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+        //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+
+//        SampleService srv1 = new SampleService();
+//        Request req = new Request();
+//        req.companyId = "1";
+//        req.userName = "userName";
+//        req.password = "pas";
+//        Response response =    srv1.ServiceSample(req);
 
 
 
@@ -286,7 +344,91 @@ public class SetupActivity extends AppCompatActivity
     }
 
 
+//    public void Runthread1( ){
+//
+//        Thread thread = new Thread(new Runnable(){
+//            public void run() {
+//
+//                APTMTRWebServiceSoap service = new APTMTRWebServiceSoap();
+//
+//                String str = "empty";
+//
+//
+//                try {
+//                    str = service.GetWebServiceURL(field1,field2);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//                result = str;
+//                //String value2;
+//
+//                //result = obj.value2;
+//                //result = str;
+//                //obj.value2
+//
+//            }
+//        });
+//
+//
+//
+//
+//
+//
+//
+//
+//    }
+
+
+
+
+
+
 
 
 }
+
+
+class BagOfPrimitives {
+    public String url;
+
+    BagOfPrimitives() {
+
+
+    }
+}
+
+class myThread extends Thread {
+
+    String Value1;
+    String Value2;
+
+    public myThread(String Value1, String Value2) {
+        this.Value1 = Value1;
+        this.Value2 = Value2;
+    }
+
+
+    @Override
+    public void run() {
+
+        APTMTRWebServiceSoap service = new APTMTRWebServiceSoap();
+
+        String str = "empty";
+
+
+        try {
+            str = service.GetWebServiceURL(Value1, Value2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        SetupActivity.result = str;
+
+    }
+
+}
+
+
+
 
