@@ -14,9 +14,8 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:columnCount="4"
-        android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
 
 
@@ -29,8 +28,9 @@
             android:layout_rowWeight="1"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
-            android:text="Κωδικός"
-            android:textSize="30sp" />
+            android:text="Κωδικός :"
+            android:textSize="35sp"
+            android:textColor="@color/TextGray"/>
 
 
         <TextView
@@ -57,7 +57,8 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_1"
-            android:text="1" />
+            android:text="1"
+            android:textSize="25sp"/>
 
         <Button
             android:id="@+id/numpad_button_2"
@@ -65,7 +66,8 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_2"
-            android:text="2" />
+            android:text="2"
+            android:textSize="25sp"/>
 
         <Button
             android:id="@+id/numpad_button_3"
@@ -73,7 +75,8 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_3"
-            android:text="3" />
+            android:text="3"
+            android:textSize="25sp"/>
 
 
         <ImageButton
@@ -91,7 +94,8 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_4"
-            android:text="4" />
+            android:text="4"
+            android:textSize="25sp"/>
 
         <Button
             android:id="@+id/numpad_button_5"
@@ -99,7 +103,8 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_5"
-            android:text="5" />
+            android:text="5"
+            android:textSize="25sp"/>
 
         <Button
             android:id="@+id/numpad_button_6"
@@ -107,17 +112,18 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_6"
-            android:text="6" />
+            android:text="6"
+            android:textSize="25sp"/>
 
 
 
         <ImageButton
-            android:id="@+id/numpad_button_clear"
+            android:id="@+id/numpad_button_settings"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
-            android:src="@mipmap/ic_clear_black_24dp"
-            android:onClick="OnButtonPressed_clear"
+            android:src="@mipmap/ic_settings"
+            android:onClick="OnButtonPressed_settings"
             android:elevation="3dp"/>
 
 
@@ -127,7 +133,8 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_7"
-            android:text="7" />
+            android:text="7"
+            android:textSize="25sp"/>
 
         <Button
             android:id="@+id/numpad_button_8"
@@ -135,7 +142,8 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_8"
-            android:text="8" />
+            android:text="8"
+            android:textSize="25sp"/>
 
         <Button
             android:id="@+id/numpad_button_9"
@@ -143,7 +151,8 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_9"
-            android:text="9" />
+            android:text="9"
+            android:textSize="25sp"/>
 
         <Button
             android:id="@+id/numpad_button_OK"
@@ -155,11 +164,12 @@
             android:layout_marginTop="5dp"
             android:layout_rowSpan="2"
             android:layout_rowWeight="1"
-            android:background="@color/TrustyGreen"
+            android:background="@color/TrustyBrown"
             android:onClick="OnButtonPressed_OK"
             android:text="OK"
             android:textAlignment="center"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="@color/Gray"/>
 
         <Button
             android:id="@+id/numpad_button_0"
@@ -168,17 +178,45 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:onClick="OnButtonPressed_0"
-            android:text="0" />
-
+            android:text="0"
+            android:textSize="25sp"/>
 
         <ImageButton
-            android:id="@+id/numpad_button_settings"
+            android:id="@+id/numpad_button_clear"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
-            android:src="@mipmap/ic_settings"
-            android:onClick="OnButtonPressed_settings"
+            android:src="@mipmap/ic_clear_black_24dp"
+            android:onClick="OnButtonPressed_clear"
             android:elevation="3dp"/>
+
+
+
+
+
+        <!--<Button-->
+            <!--android:id="@+id/numpad_button_00"-->
+            <!--android:layout_columnWeight="1"-->
+            <!--android:layout_columnSpan="4"-->
+            <!--android:layout_gravity="fill"-->
+            <!--android:layout_rowWeight="1"-->
+            <!--android:onClick="OnButtonPressed_0"-->
+            <!--android:text="0"-->
+            <!--android:textSize="25sp"/>-->
+
+
+
+        <ImageView
+            android:id="@+id/sign_in_company_logo"
+            android:layout_columnWeight="1"
+            android:layout_columnSpan="4"
+            android:layout_gravity="center_horizontal"
+            android:layout_rowWeight="1"
+            android:src="@drawable/analysis_logo_white"
+            android:layout_height="20dp"
+            android:layout_width="250dp"/>
+
+
 
 
     </GridLayout>

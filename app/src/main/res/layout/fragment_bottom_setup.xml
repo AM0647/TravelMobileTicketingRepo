@@ -2,16 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BottomFragment">
+    tools:context=".BottomSetupFragment">
 
 
 
-    <TextView
-        android:id="@+id/server_url"
+    <ImageView
+        android:id="@+id/setup_company_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:background="@color/White"
-        android:textSize="25sp" />
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginRight="115dp"
+        android:src="@drawable/analysis_logo_white"/>
 
 </FrameLayout>

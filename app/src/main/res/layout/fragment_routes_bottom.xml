@@ -13,6 +13,7 @@
         android:background="@color/colorAlmostPrimarySelected"
         android:onClick="onNormalRouteButtonPressed"
         android:text="Κανονικη Διαδρομη"
+        android:textColor="@color/Gray"
         android:elevation="3dp"/>
 
     <View
@@ -28,6 +29,7 @@
         android:background="@color/colorAlmostPrimary"
         android:onClick="onTeamsButtonPressed"
         android:text="Ομαδες"
+        android:textColor="@color/Gray"
         android:elevation="3dp"/>
     <View
         android:layout_width="2dp"
@@ -42,6 +44,7 @@
         android:background="@color/colorAlmostPrimary"
         android:onClick="onReturnRouteButtonPressed"
         android:text="Διαδρομη Επιστροφης"
+        android:textColor="@color/Gray"
         android:elevation="3dp"/>
 
 </LinearLayout>

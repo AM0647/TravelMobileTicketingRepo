@@ -29,24 +29,12 @@ public class OnRouteClickListener extends AppCompatActivity implements OnItemCli
 
         Context context = view.getContext();
 
-
-
         TextView textViewRouteName = view.findViewById(R.id.textViewRoute);
-        //TextView textViewItemLastName = ((TextView) view.findViewById(R.id.textViewItemLastName));
-
-
         String listRouteName = textViewRouteName.getText().toString();
-
-
-        //String listItemTextLastName = textViewItemLastName.getText().toString();
-
 
         Intent new_intent = new Intent(context, TicketIssuanceActivity.class);
         new_intent.putExtra("Route name", listRouteName);
-        //new_intent.putExtra("lastname", listItemTextLastName);
         context.startActivity(new_intent);
-
-
 
     }
 

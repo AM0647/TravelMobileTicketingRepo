@@ -22,7 +22,6 @@
         </activity>
         <activity android:name=".SetupActivity" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".RoutesActivity" />
         <activity
             android:name=".TicketIssuanceActivity"
             android:label="@string/title_activity_navigation_test"
@@ -30,6 +29,10 @@
         <activity
             android:name=".DefinedTicketsActivity"
             android:label="@string/title_activity_defined_tickets"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".DefinedTicketsFromRoutesActivity"
+            android:label="@string/title_activity_defined_tickets_from_routes"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".NonUpdatedTicketsActivity"
@@ -46,6 +49,35 @@
         <activity
             android:name=".DetailListActivity"
             android:label="@string/title_activity_detail_list"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".InformationActivity"
+            android:label="@string/title_activity_information"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".RoutesActivity"
+            android:label="@string/title_activity_routes"
+
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".NonUpdatedTicketsFromRoutesActivity"
+            android:label="@string/title_activity_non_updated_tickets_from_routes"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".BalanceQuestionFromRoutesActivity"
+            android:label="@string/title_activity_balance_question_from_routes"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".DayQuestionFromRoutesActivity"
+            android:label="@string/title_activity_day_question_from_routes"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".DetailListFromRoutesActivity"
+            android:label="@string/title_activity_detail_list_from_routes"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".InformationFromRoutesActivity"
+            android:label="@string/title_activity_information_from_routes"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 

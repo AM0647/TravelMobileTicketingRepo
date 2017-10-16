@@ -7,21 +7,28 @@
     tools:context="com.example.smagionas.redbustickets.SetupActivity">
 
 
-
-
     <LinearLayout
-        android:id="@+id/LocationLayout"
+        android:id="@+id/SetupTopLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="5"
         android:orientation="horizontal"></LinearLayout>
 
     <LinearLayout
-        android:id="@+id/DestinationsLayout"
+        android:id="@+id/SetupCenterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="horizontal"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/SetupBottomLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:orientation="horizontal"></LinearLayout>
 </LinearLayout>
+
+
 
 

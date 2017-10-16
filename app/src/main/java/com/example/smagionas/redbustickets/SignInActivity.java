@@ -1,12 +1,9 @@
 package com.example.smagionas.redbustickets;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +30,6 @@ public class SignInActivity extends AppCompatActivity
     public void onResume()
     {
         super.onResume();
-        //displayed_code.setText("");
     }
 
     public void OnButtonPressed_0(View view)
@@ -142,6 +138,7 @@ public class SignInActivity extends AppCompatActivity
             code_to_display="";
             displayed_code.setText("");
             Intent intent = new Intent(this,RoutesActivity.class);
+            intent.putExtra("Route name", "");
             startActivity(intent);
 
 

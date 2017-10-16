@@ -1,37 +1,42 @@
 package com.example.smagionas.redbustickets;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
+import android.util.TypedValue;
+import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.view.View;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-public class RoutesActivity extends AppCompatActivity {
+import static com.example.smagionas.redbustickets.R.string.title_activity_routes;
+import static com.example.smagionas.redbustickets.R.string.title_activity_routes_return;
+
+public class RoutesActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     public GridView GridViewItems;
-    Button normalRouteButton;
-    Button returnRouteButton;
-    Button teamButton;
     RelativeLayout layout1;
+    boolean bus_direction_forth = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routes);
 
-        Toolbar myToolbar = findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-        ActionBar ab = getSupportActionBar();
 
         layout1 = findViewById(R.id.Routes_top_layout);
 
@@ -39,14 +44,65 @@ public class RoutesActivity extends AppCompatActivity {
         layout1.removeView(GridViewItems);
 
 
-        RoutesBottomFragment bottomRoutesFragment = new RoutesBottomFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction()
-                .replace(R.id.Routes_bottom_layout, bottomRoutesFragment)
-                .commit();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        final ActionBar ab = getSupportActionBar();
+
+
+
+        final FloatingActionButton teams = (FloatingActionButton) findViewById(R.id.teams);
+        teams.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+        final FloatingActionButton direction = (FloatingActionButton) findViewById(R.id.direction);
+        direction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(bus_direction_forth == true){
+
+                    layout1.setBackgroundResource(R.color.colorSecondary);
+
+                    //String title_to_be = "";
+                    //title_to_be.equals(title_activity_routes_return);
+
+                    //TextView otinanai;
+                    //otinanai.setText(title_activity_routes_return);
+
+
+                    ab.setTitle(title_activity_routes_return);
+                    direction.setImageResource(R.mipmap.ic_arrow_left_thick);
+                    bus_direction_forth = false;
+                }else{
+
+                    layout1.setBackgroundResource(R.color.colorPrimary);
+                    ab.setTitle(title_activity_routes);
+                    direction.setImageResource(R.mipmap.ic_arrow_right_thick);
+                    bus_direction_forth = true;
+
+                }
+
+
+            }
+        });
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_routes);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
 
     }
+
 
 
     @Override
@@ -95,77 +151,62 @@ public class RoutesActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-        normalRouteButton = findViewById(R.id.NormalRouteButton);
-        returnRouteButton = findViewById(R.id.ReturnRouteButton);
-        teamButton = findViewById(R.id.TeamsButton);
-
-
-
-
-
-
     }
 
 
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer_routes = (DrawerLayout) findViewById(R.id.drawer_layout_routes);
+        if (drawer_routes.isDrawerOpen(GravityCompat.START)) {
+            drawer_routes.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.app_bar_items, menu);
+        getMenuInflater().inflate(R.menu.my_menu, menu);
         return true;
     }
 
-    public void onNormalRouteButtonPressed(View view){
 
-        normalRouteButton.setBackgroundResource(R.color.colorAlmostPrimarySelected);
-        teamButton.setBackgroundResource(R.color.colorAlmostPrimary);
-        returnRouteButton.setBackgroundResource(R.color.colorAlmostPrimary);
-        layout1.setBackgroundResource(R.color.colorPrimary);
-
-
-    }
-
-    public void onTeamsButtonPressed(View view){
-
-        normalRouteButton.setBackgroundResource(R.color.colorAlmostPrimary);
-        teamButton.setBackgroundResource(R.color.colorAlmostPrimarySelected);
-        returnRouteButton.setBackgroundResource(R.color.colorAlmostPrimary);
-        layout1.setBackgroundResource(R.color.colorPrimary);
-
-
-    }
-
-    public void onReturnRouteButtonPressed(View view){
-
-        normalRouteButton.setBackgroundResource(R.color.colorAlmostSecondary);
-        teamButton.setBackgroundResource(R.color.colorAlmostSecondary);
-        returnRouteButton.setBackgroundResource(R.color.colorAlmostSecondarySelected);
-        layout1.setBackgroundResource(R.color.colorSecondary);
-
-
-        //teamButton.setBackground(ResourcesCompat.getColor(getResources(), R.color.colorAlmostSecondary, null);
-        //returnRouteButton.setBackground(ResourcesCompat.getColor(getResources(), R.color.colorAlmostSecondary, null);
-
-    }
-
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                // User chose the "Settings" item, show the app settings UI...
-                return true;
+    public boolean onNavigationItemSelected(MenuItem item) {
 
+        int id = item.getItemId();
 
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
+        if (id == R.id.nav_first_item_routes) {
+            Intent intent = new Intent(this,RoutesActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_second_item_routes) {
+            Intent intent = new Intent(this,DefinedTicketsFromRoutesActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_third_item_routes) {
+            Intent intent = new Intent(this,NonUpdatedTicketsFromRoutesActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_fourth_item_routes) {
+            Intent intent = new Intent(this,BalanceQuestionFromRoutesActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_fifth_item_routes) {
+            Intent intent = new Intent(this,DayQuestionFromRoutesActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_sixth_item_routes) {
+            Intent intent = new Intent(this,DetailListFromRoutesActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_seventh_item_routes) {
+            Intent intent = new Intent(this,InformationFromRoutesActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_eighth_item_routes) {
+            Intent intent = new Intent(this, SignInActivity.class);
+            startActivity(intent);
         }
-    }
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_routes);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }
