@@ -3,7 +3,6 @@ package com.example.smagionas.redbustickets;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,10 +10,12 @@ import android.widget.Toast;
 public class SignInActivity extends AppCompatActivity
 {
 
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
     public TextView displayed_code;
+
     public String code_to_display="";
     public String encrypted_code_to_display = "";
-
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,7 +23,6 @@ public class SignInActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
         displayed_code = findViewById(R.id.numpad_screen);
-        displayed_code.setTextSize(TypedValue.COMPLEX_UNIT_PX,45);
 
     }
 
@@ -34,78 +34,78 @@ public class SignInActivity extends AppCompatActivity
 
     public void OnButtonPressed_0(View view)
     {
-        code_to_display = code_to_display+"0";
+        code_to_display = code_to_display + "0";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_1(View view)
     {
-        code_to_display = code_to_display+"1";
+        code_to_display = code_to_display + "1";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_2(View view)
     {
-        code_to_display = code_to_display+"2";
+        code_to_display = code_to_display + "2";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_3(View view)
     {
-        code_to_display = code_to_display+"3";
+        code_to_display = code_to_display + "3";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_4(View view)
     {
-        code_to_display = code_to_display+"4";
+        code_to_display = code_to_display + "4";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_5(View view)
     {
-        code_to_display = code_to_display+"5";
+        code_to_display = code_to_display + "5";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_6(View view)
     {
-        code_to_display = code_to_display+"6";
+        code_to_display = code_to_display + "6";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_7(View view)
     {
-        code_to_display = code_to_display+"7";
+        code_to_display = code_to_display + "7";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_8(View view)
     {
-        code_to_display = code_to_display+"8";
+        code_to_display = code_to_display + "8";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_9(View view)
     {
-        code_to_display = code_to_display+"9";
+        code_to_display = code_to_display + "9";
         encrypted_code_to_display = encrypted_code_to_display + "*";
         displayed_code.setText(encrypted_code_to_display);
     }
 
     public void OnButtonPressed_clear(View view)
     {
-        code_to_display = "";
-        encrypted_code_to_display = "";
+        code_to_display = "" ;
+        encrypted_code_to_display = "" ;
         displayed_code.setText(encrypted_code_to_display);
     }
 
@@ -114,8 +114,8 @@ public class SignInActivity extends AppCompatActivity
     {
         if (code_to_display != null && code_to_display.length() > 0 )
         {
-            code_to_display = code_to_display.substring(0, code_to_display.length() - 1);
-            encrypted_code_to_display = encrypted_code_to_display.substring(0, encrypted_code_to_display.length() - 1);
+            code_to_display = code_to_display.substring(0, code_to_display.length() - 1 );
+            encrypted_code_to_display = encrypted_code_to_display.substring(0, encrypted_code_to_display.length() - 1 );
         }
         displayed_code.setText(encrypted_code_to_display);
     }
@@ -123,7 +123,11 @@ public class SignInActivity extends AppCompatActivity
 
     public void OnButtonPressed_settings(View view)
     {
-        displayed_code.setText(code_to_display);
+
+        Intent intent = new Intent(this,InformationFromSignInActivity.class);
+        intent.putExtra("Direction Forth",true);
+        startActivity(intent);
+
     }
 
 
@@ -138,33 +142,30 @@ public class SignInActivity extends AppCompatActivity
             code_to_display="";
             displayed_code.setText("");
             Intent intent = new Intent(this,RoutesActivity.class);
-            intent.putExtra("Route name", "");
+            intent.putExtra("Direction Forth",true);
             startActivity(intent);
 
 
         }else{
 
-            encrypted_code_to_display="";
-            code_to_display="";
-            displayed_code.setText("");
+            encrypted_code_to_display= "" ;
+            code_to_display= "" ;
+            displayed_code.setText( "" ) ;
 
-            Toast.makeText(getApplicationContext(), "Wrong Password. Please try again..", Toast.LENGTH_LONG).show();
-
-
+            Toast.makeText(getApplicationContext(), "Λάθος κωδικός. Προσπαθήστε ξανά.", Toast.LENGTH_LONG).show();
 
         }
-
-
     }
 
 
     @Override
     public void onBackPressed() {
 
-        // Do nothing. After leaving the activity responsible for the initial device setup, the user cannot return to that activity
+        Intent a = new Intent(Intent.ACTION_MAIN);                                                   // Exit app. Go to Home Screen.
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
 
     }
-
-
 
 }

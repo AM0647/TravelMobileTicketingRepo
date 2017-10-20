@@ -24,16 +24,7 @@
 
     <include layout="@layout/content_routes" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/direction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:borderWidth="0dp"
-        app:elevation="12dp"
-        app:backgroundTint="@color/TextGray"
-        app:srcCompat="@mipmap/ic_arrow_right_thick" />
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/teams"

@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
             <item
                 android:id="@+id/nav_first_item"
-                android:icon="@mipmap/ic_printer"
+                android:icon="@mipmap/ic_printer_black"
                 android:title="@string/nav_first_item_value"/>
             <item
                 android:id="@+id/nav_second_item"

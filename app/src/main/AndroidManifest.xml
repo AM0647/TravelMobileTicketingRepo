@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smagionas.redbustickets">
-
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,65 +19,84 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SetupActivity" />
-        <activity android:name=".SignInActivity" />
+        <activity
+            android:name=".SetupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RoutesActivity"
+            android:label="@string/title_activity_routes"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".TicketIssuanceActivity"
             android:label="@string/title_activity_navigation_test"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".DefinedTicketsActivity"
             android:label="@string/title_activity_defined_tickets"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".DefinedTicketsFromRoutesActivity"
             android:label="@string/title_activity_defined_tickets_from_routes"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".NonUpdatedTicketsActivity"
             android:label="@string/title_activity_non_updated_tickets"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".NonUpdatedTicketsFromRoutesActivity"
+            android:label="@string/title_activity_non_updated_tickets_from_routes"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".BalanceQuestionActivity"
             android:label="@string/title_activity_balance_question"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".DayQuestionActivity"
-            android:label="@string/title_activity_day_question"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".DetailListActivity"
-            android:label="@string/title_activity_detail_list"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".InformationActivity"
-            android:label="@string/title_activity_information"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".RoutesActivity"
-            android:label="@string/title_activity_routes"
-
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity
-            android:name=".NonUpdatedTicketsFromRoutesActivity"
-            android:label="@string/title_activity_non_updated_tickets_from_routes"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".BalanceQuestionFromRoutesActivity"
             android:label="@string/title_activity_balance_question_from_routes"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".DayQuestionActivity"
+            android:label="@string/title_activity_day_question"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".DayQuestionFromRoutesActivity"
             android:label="@string/title_activity_day_question_from_routes"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".DetailListActivity"
+            android:label="@string/title_activity_detail_list"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".DetailListFromRoutesActivity"
             android:label="@string/title_activity_detail_list_from_routes"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".InformationActivity"
+            android:label="@string/title_activity_information"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".InformationFromRoutesActivity"
             android:label="@string/title_activity_information_from_routes"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".InformationFromSignInActivity"
+            android:screenOrientation="portrait"/>
     </application>
-
 </manifest>

@@ -13,16 +13,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class OnRouteClickListener extends AppCompatActivity implements OnItemClickListener {
 
 
 
-    public interface NoticeDialogListener {
-        void onDeleteEmployee(DialogFragment dialog);
-        void onCancel(DialogFragment dialog);
-    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -31,6 +28,9 @@ public class OnRouteClickListener extends AppCompatActivity implements OnItemCli
 
         TextView textViewRouteName = view.findViewById(R.id.textViewRoute);
         String listRouteName = textViewRouteName.getText().toString();
+
+        //Toast.makeText(context, listRouteName, Toast.LENGTH_LONG).show();
+
 
         Intent new_intent = new Intent(context, TicketIssuanceActivity.class);
         new_intent.putExtra("Route name", listRouteName);

@@ -1,6 +1,5 @@
 package com.example.smagionas.redbustickets;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

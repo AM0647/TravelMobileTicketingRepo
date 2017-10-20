@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.URLUtil;
@@ -19,11 +20,16 @@ import com.google.gson.Gson;
 public class SetupActivity extends AppCompatActivity
 {
 
+
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
     EditText ktelID;
     EditText key ;
-    static String result;
+
     BagOfPrimitives obj = new BagOfPrimitives();
     Gson gson = new Gson();
+
+    static String result;
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
 
     @Override
@@ -35,7 +41,23 @@ public class SetupActivity extends AppCompatActivity
 
 
 
-        checkFirstRun();                                                                            // Check if this is the first time the tablet runs the app...
+        checkFirstRun();                                                                            // Check if this is the first time the tablet runs the app.
+
+
+        findViewById(R.id.SetupLayout).setOnTouchListener(new View.OnTouchListener() {              // Hides the keyboard when user touches outside of the editText fields.
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+
+                return true;
+            }
+        });
+
+
+
+
     }
 
 
@@ -53,7 +75,7 @@ public class SetupActivity extends AppCompatActivity
 
 
 
-    private void checkFirstRun()
+    private void checkFirstRun()                                                                    // TODO Add real logic behind this method.
     {
         final String PREFS_NAME = "MyPrefsFile";
         final String PREF_VERSION_CODE_KEY = "version_code";
@@ -76,7 +98,7 @@ public class SetupActivity extends AppCompatActivity
         } else if (currentVersionCode > savedVersionCode)
         {                                                                                           // App was updated...
 
-
+              //do nothing
         }
 
         prefs.edit().putInt(PREF_VERSION_CODE_KEY, currentVersionCode).apply();
@@ -89,19 +111,19 @@ public class SetupActivity extends AppCompatActivity
 
 
 
-        TopSetupFragment topSetupFragment = new TopSetupFragment();
+        TopSetupFragment topSetupFragment = new TopSetupFragment();                                 // Header
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.SetupTopLayout, topSetupFragment)
                 .commit();
 
-        CenterSetupFragment centerSetupFragment = new CenterSetupFragment();
+        CenterSetupFragment centerSetupFragment = new CenterSetupFragment();                        // Body
         manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.SetupCenterLayout, centerSetupFragment)
                 .commit();
 
-        BottomSetupFragment bottomSetupFragment = new BottomSetupFragment();
+        BottomSetupFragment bottomSetupFragment = new BottomSetupFragment();                        // Footer
         manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.SetupBottomLayout,bottomSetupFragment)
@@ -120,24 +142,24 @@ public class SetupActivity extends AppCompatActivity
 
 
 
-    public void onDoneSetupClicked(View view)
-    {                                                                                                               // Here user tries to sign up
+    public void onDoneSetupClicked(View view)                                                                       // User pressed the done button
+    {
         final String ktelID_input = ktelID.getText().toString();                                                    // Get the user input
         final String key_input = key.getText().toString();
 
 
-        if(!(ktelID_input.isEmpty())  &&  !(key_input.isEmpty()))                                                   // Check if fields are empty
+        if(!(ktelID_input.isEmpty())  &&  !(key_input.isEmpty()))                                                   // Fields are not empty
         {
 
-            AuthenticateDevice(ktelID_input,key_input);
-
-            {
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);       // Make sure android soft keyboard gets closed
-                imm.hideSoftInputFromWindow(ktelID.getWindowToken(), 0);
-            }
+            AuthenticateDevice(ktelID_input,key_input);                                                             // Send data to server and wait for the response
 
 
-            Boolean IsURL = false;
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);           // Make sure android soft keyboard gets closed
+            imm.hideSoftInputFromWindow(ktelID.getWindowToken(), 0);
+
+
+
+            Boolean IsURL;
             IsURL = URLUtil.isValidUrl(obj.url);
 
             if(IsURL){
@@ -153,16 +175,10 @@ public class SetupActivity extends AppCompatActivity
 
 
             }
-
-
-
-
-
-
-        }else
+        }else                                                                                                       // Fields are empty
          {
 
-            Toast.makeText(getApplicationContext(), "Συμπληρώστε τα πεδία.", Toast.LENGTH_LONG).show();         // fields empty
+            Toast.makeText(getApplicationContext(), "Συμπληρώστε τα πεδία.", Toast.LENGTH_LONG).show();
 
             ktelID.setText("");
             key.setText("");
@@ -172,18 +188,17 @@ public class SetupActivity extends AppCompatActivity
     }
 
 
-    public void onClearSetupClicked(View view)
+    public void onClearSetupClicked(View view)                                                                      // User pressed the clear button
     {
         ImageView clear = findViewById(R.id.clear);
         clear.animate().rotationY(clear.getRotationY()+360).setDuration(1000);
         ktelID.setText("");
         key.setText("");
-        //ktelID.requestFocus();
 
     }
 
 
-    public void AuthenticateDevice(final String field1, final String field2){
+    public void AuthenticateDevice(final String field1, final String field2){                                       // Authentication of device
 
 
         result = "Not  initialized";
@@ -197,11 +212,6 @@ public class SetupActivity extends AppCompatActivity
 
         obj = gson.fromJson(result, BagOfPrimitives.class);
 
-
-
-
-        //Toast.makeText(getApplicationContext(), obj.url, Toast.LENGTH_LONG).show();
-
     }
 
 
@@ -210,12 +220,8 @@ public class SetupActivity extends AppCompatActivity
 }
 
 
-
-
-
-
 class BagOfPrimitives {
-    public String url;
+    String url;
 
     BagOfPrimitives() {
 
@@ -230,7 +236,7 @@ class myThread extends Thread {
     String Value1;
     String Value2;
 
-    public myThread(String Value1, String Value2) {
+    myThread(String Value1, String Value2) {
         this.Value1 = Value1;
         this.Value2 = Value2;
     }

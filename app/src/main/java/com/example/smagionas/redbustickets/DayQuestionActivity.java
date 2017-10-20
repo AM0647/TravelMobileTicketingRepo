@@ -1,7 +1,11 @@
 package com.example.smagionas.redbustickets;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,22 +15,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class DayQuestionActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
 
     String value1;
+    Calendar cal;
+    java.util.Date date;
+    DatePicker datepicker;
+    int day;
+    int month;
+    int year;
+    int year_picked;
+    int month_picked;
+    int day_picked;
+    TextView DateDisplayed;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_question);
 
+        DateDisplayed = findViewById(R.id.DateDisplayed);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
-
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -40,6 +66,86 @@ public class DayQuestionActivity extends AppCompatActivity
 
         Bundle extras = getIntent().getExtras();
         value1 = extras.getString("Route name");
+
+        date = new Date();                                                            // Get today's date
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        day = cal.get(Calendar.DAY_OF_MONTH);
+        month = cal.get(Calendar.MONTH);
+        year = cal.get(Calendar.YEAR);
+
+
+        year_picked = year;
+        month_picked = month + 1;
+        day_picked = day;
+
+        DateDisplayed.setText(day_picked + " / " + month_picked + " / " + year_picked);
+
+        View view = findViewById(android.R.id.content);
+        datepicker = (DatePicker) findViewById(R.id.datePicker);
+
+        datepicker.setMaxDate((new Date().getTime()));
+        datepicker.init(year_picked, month_picked, day_picked, new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {  // Notify every time user picks a new date
+
+                date= new Date();                                                               // Get today's date
+                cal = Calendar.getInstance();
+                cal.setTime(date);
+                int Today_day = cal.get(Calendar.DAY_OF_MONTH);
+                int Today_month = cal.get(Calendar.MONTH) + 1;
+                int Today_year = cal.get(Calendar.YEAR);                                            // Todo don't allow future dates
+
+                year_picked = year;
+                month_picked = monthOfYear;
+                day_picked = dayOfMonth;
+
+
+                if(  (year_picked<= Today_year)  && (month_picked<= Today_month)  &&  (day_picked<= Today_day) ){
+
+                    DateDisplayed.setText(day_picked + " / " + month_picked + " / " + year_picked);
+
+
+                }
+
+
+
+
+
+            }
+        });
+
+    }
+
+    public void onPrevDatePressed(View view) {
+
+
+        datepicker.updateDate(year_picked, month_picked, day_picked - 1);
+
+
+    }
+
+    public void onNextDatePressed(View view) {
+
+
+        date= new Date();                                                               // Get today's date
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        int Today_day = cal.get(Calendar.DAY_OF_MONTH);
+        int Today_month = cal.get(Calendar.MONTH) + 1;
+        int Today_year = cal.get(Calendar.YEAR);
+
+        if(  (year_picked<= Today_year)  && (month_picked<= Today_month)  &&  (day_picked < Today_day) ){
+
+            datepicker.updateDate(year_picked, month_picked, day_picked + 1);
+
+        }else{
+
+            datepicker.updateDate(Today_year, Today_month, Today_day);
+        }
+
+
+
     }
 
     @Override
@@ -48,7 +154,9 @@ public class DayQuestionActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            Intent intent = new Intent(this,TicketIssuanceActivity.class);
+            intent.putExtra("Route name", value1);
+            startActivity(intent);
         }
     }
 
@@ -59,7 +167,6 @@ public class DayQuestionActivity extends AppCompatActivity
     }
 
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -67,34 +174,34 @@ public class DayQuestionActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_first_item) {
-            Intent intent = new Intent(this,TicketIssuanceActivity.class);
+            Intent intent = new Intent(this, TicketIssuanceActivity.class);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_second_item) {
-            Intent intent = new Intent(this,DefinedTicketsActivity.class);
+            Intent intent = new Intent(this, DefinedTicketsActivity.class);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_third_item) {
-            Intent intent = new Intent(this,NonUpdatedTicketsActivity.class);
+            Intent intent = new Intent(this, NonUpdatedTicketsActivity.class);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_fourth_item) {
-            Intent intent = new Intent(this,BalanceQuestionActivity.class);
+            Intent intent = new Intent(this, BalanceQuestionActivity.class);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_fifth_item) {
-            Intent intent = new Intent(this,DayQuestionActivity.class);
+            Intent intent = new Intent(this, DayQuestionActivity.class);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_sixth_item) {
-            Intent intent = new Intent(this,DetailListActivity.class);
+            Intent intent = new Intent(this, DetailListActivity.class);
             intent.putExtra("Route name", value1);
             startActivity(intent);
-        }else if (id == R.id.nav_seventh_item) {
-            Intent intent = new Intent(this,InformationActivity.class);
+        } else if (id == R.id.nav_seventh_item) {
+            Intent intent = new Intent(this, InformationActivity.class);
             intent.putExtra("Route name", value1);
             startActivity(intent);
-        }else if (id == R.id.nav_eighth_item) {
+        } else if (id == R.id.nav_eighth_item) {
             Intent intent = new Intent(this, SignInActivity.class);
             startActivity(intent);
         }
@@ -103,4 +210,26 @@ public class DayQuestionActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    public void OnDateDisplayedPressed(View view){
+
+        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(),"Date Picker");
+
+
+    }
+
+
+    public void OnDayQuestionButtonPressed(View view){
+
+
+
+    }
+
+
+
+
+
 }
+

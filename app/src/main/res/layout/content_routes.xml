@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
     tools:context="com.example.smagionas.redbustickets.RoutesActivity"
     tools:showIn="@layout/app_bar_routes">
 
@@ -18,7 +17,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        android:orientation="horizontal"></RelativeLayout>
+        android:orientation="horizontal">
+
+
+    </RelativeLayout>
 
 
 

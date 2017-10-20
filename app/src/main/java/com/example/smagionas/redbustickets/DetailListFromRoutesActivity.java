@@ -18,11 +18,15 @@ import android.view.MenuItem;
 public class DetailListFromRoutesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    boolean bus_direction_forth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_list_from_routes);
 
+        Bundle extras = getIntent().getExtras();
+        bus_direction_forth = extras.getBoolean("Direction Forth");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -41,11 +45,14 @@ public class DetailListFromRoutesActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_routes);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        DrawerLayout drawer_routes = (DrawerLayout) findViewById(R.id.drawer_layout_routes);
+        if (drawer_routes.isDrawerOpen(GravityCompat.START)) {
+            drawer_routes.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+
+            Intent new_intent = new Intent(this, RoutesActivity.class);
+            new_intent.putExtra("Direction Forth",bus_direction_forth);
+            this.startActivity(new_intent);
         }
     }
 
@@ -65,24 +72,31 @@ public class DetailListFromRoutesActivity extends AppCompatActivity
 
         if (id == R.id.nav_first_item_routes) {
             Intent intent = new Intent(this,RoutesActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             startActivity(intent);
         }else if (id == R.id.nav_second_item_routes) {
             Intent intent = new Intent(this,DefinedTicketsFromRoutesActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             startActivity(intent);
         } else if (id == R.id.nav_third_item_routes) {
             Intent intent = new Intent(this,NonUpdatedTicketsFromRoutesActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             startActivity(intent);
         } else if (id == R.id.nav_fourth_item_routes) {
             Intent intent = new Intent(this,BalanceQuestionFromRoutesActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             startActivity(intent);
         } else if (id == R.id.nav_fifth_item_routes) {
             Intent intent = new Intent(this,DayQuestionFromRoutesActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             startActivity(intent);
         } else if (id == R.id.nav_sixth_item_routes) {
             Intent intent = new Intent(this,DetailListFromRoutesActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             startActivity(intent);
         }else if (id == R.id.nav_seventh_item_routes) {
             Intent intent = new Intent(this,InformationFromRoutesActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             startActivity(intent);
         }else if (id == R.id.nav_eighth_item_routes) {
             Intent intent = new Intent(this, SignInActivity.class);

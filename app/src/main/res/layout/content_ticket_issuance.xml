@@ -8,88 +8,274 @@ android:layout_height="match_parent"
 app:layout_behavior="@string/appbar_scrolling_view_behavior"
 android:orientation="vertical"
 tools:showIn="@layout/app_bar_ticket_issuance"
-android:background="@color/colorPrimary"
+android:background="@color/AlmostWhite"
 tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
 
 
+    <Button
+        android:id="@+id/Route_full_name_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
-<Button
-    android:id="@+id/Route_name"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textAllCaps="false"
-    android:textSize="25sp"
-    android:onClick="onRouteNameButtonPressed"/>
-
-<LinearLayout
+    <LinearLayout
     android:id="@+id/TopLayout"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1.5"
-    android:background="@color/colorPrimary"
+        android:layout_marginTop="-2dp"
     android:orientation="horizontal">
 
-    <ImageButton
+        <ImageButton
+            android:id="@+id/prevLocationButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:elevation="0dp"
+            android:onClick="OnPrevLocationButtonPressed"
+            android:src="@mipmap/ic_arrow_left_gray" />
+
+        <TextView
+            android:id="@+id/locationButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="-5dp"
+            android:layout_marginRight="-5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="4"
+            android:background="@color/defaultButtongray"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:elevation="0dp"/>
+
+        <ImageButton
+        android:id="@+id/nextLocationButton"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:src="@mipmap/arrow_back"
-        android:layout_weight="1"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:text="Location"
-        android:gravity="center"
-        android:layout_weight="4"
-        android:visibility="visible"
-        tools:ignore="HardcodedText" />
-
-    <ImageButton
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:src="@mipmap/arrow_front"
-        android:layout_weight="1"
-        tools:ignore="HardcodedText" />
+        android:src="@mipmap/ic_arrow_right_black"
+        android:layout_weight="1.2"
+            android:elevation="0dp"
+        android:onClick="OnNextLocationButtonPressed"/>
 
 
-
-
-
-
-</LinearLayout>
-
-<LinearLayout
-    android:id="@+id/CenterLayout"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="11"
-    android:orientation="horizontal"
-    android:baselineAligned="false">
+    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/CenterLeftLayout"
-        android:layout_width="0dp"
-        android:layout_weight="3"
-        android:layout_height="match_parent"
-        android:background="@color/colorHint"
-        android:orientation="horizontal"></LinearLayout>
+        android:id="@+id/CenterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="11"
+        android:orientation="horizontal"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <ScrollView
+            android:id="@+id/DestinationsScrollView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:layout_marginRight="-10dp">
+
+
+            <RelativeLayout
+                android:id="@+id/ticket_issuance_grid_items"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+        <ScrollView
+            android:id="@+id/TypeOfTicketsLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="2.5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/normal_ticket_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/colorYellow2"
+                    android:minWidth="100dp"
+                    android:onClick="OnNormalTicketButtonPressed"
+                    android:text="Κανονικο"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/half_ticket_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="-10dp"
+                    android:backgroundTint="@color/colorYellow2"
+                    android:minWidth="100dp"
+                    android:onClick="OnHalfTicketButtonPressed"
+                    android:text="Μισο"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/student_50percent_ticket_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="-10dp"
+                    android:backgroundTint="@color/colorYellow2"
+                    android:minWidth="100dp"
+                    android:onClick="OnStudent50percentTicketButtonPressed"
+                    android:text="Φοιτητικο \n 50%"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/student_25percent_ticket_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="-10dp"
+                    android:backgroundTint="@color/colorYellow2"
+                    android:minWidth="100dp"
+                    android:onClick="OnStudent25percentTicketButtonPressed"
+                    android:text="Φοιτητικο \n 25%"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/military_15percent_ticket_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="-10dp"
+                    android:backgroundTint="@color/colorYellow2"
+                    android:minWidth="100dp"
+                    android:onClick="OnMilitary15percentTicketButtonPressed"
+                    android:text="Στρατιωτικο \n 15%"
+                    android:textAlignment="center"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/package_ticket_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="-10dp"
+                    android:backgroundTint="@color/colorYellow2"
+                    android:minWidth="100dp"
+                    android:onClick="OnPackageTicketButtonPressed"
+                    android:text="Δεμα"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/with_return_ticket_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="-10dp"
+                    android:backgroundTint="@color/colorYellow2"
+                    android:minWidth="100dp"
+                    android:onClick="OnWithReturnTicketButtonPressed"
+                    android:text="Με επιστροφη"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/with_return_25percent_ticket_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="-10dp"
+                    android:backgroundTint="@color/colorYellow2"
+                    android:minWidth="100dp"
+                    android:onClick="OnWithReturn25percentTicketButtonPressed"
+                    android:text="Με επιστροφη \n 25%"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/CenterRightLayout"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
+            android:id="@+id/BottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+        android:layout_marginLeft="2dp"
+            android:orientation="horizontal">
 
-        android:background="@color/colorAccent"
-        android:orientation="horizontal"></LinearLayout>
+
+        <TextView
+            android:id="@+id/Passenger_Destination"
+            android:layout_width="135dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorcolor"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="@color/Black"
+            android:elevation="3dp"/>
+
+        <TextView
+            android:id="@+id/TextViewDestinationValue"
+            android:layout_height="60dp"
+            android:layout_width="80dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="3dp"
+            android:background="@color/colorcolor"
+            android:textSize="20sp"
+            android:paddingLeft="15dp"
+            android:gravity="center_vertical"
+            android:elevation="3dp"/>
+
+
+        <TextView
+            android:id="@+id/TextViewValueCounter"
+            android:layout_height="60dp"
+            android:layout_width="80dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="3dp"
+            android:background="@color/colorcolor"
+            android:textSize="20sp"
+            android:paddingLeft="15dp"
+            android:gravity="center_vertical"
+            android:elevation="3dp"/>
+
+        <ImageButton
+            android:id="@+id/Print_button"
+            android:layout_width="122dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="9dp"
+            android:backgroundTint="@color/Green"
+            android:src="@mipmap/ic_printer_white"
+            android:onClick="OnPrint_button_pressed"
+            android:padding="5dp"/>
+
+
+    </LinearLayout>
+
 </LinearLayout>
 
-<LinearLayout
-    android:id="@+id/BottomLayout"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="2"
-    android:background="@color/colorPrimaryDark"
-    android:orientation="horizontal"></LinearLayout>
-</LinearLayout>
+

@@ -12,14 +12,503 @@
     tools:showIn="@layout/app_bar_information_from_routes">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Πληροφορίες_from_routes"
-        android:textSize="30sp"
-        android:textColor="@color/Black"
-        android:layout_gravity="center"
-        android:textAlignment="center"/>
+    <RelativeLayout
+        android:id="@+id/tablet_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
+
+        <TextView
+            android:id="@+id/TabletLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tablet"
+            android:textSize="18sp"
+            android:textColor="@color/Black"
+            android:layout_gravity="left"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"/>
+
+        <View
+            android:id="@+id/tablet_border_top_right"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_toRightOf="@+id/TabletLabel"
+            android:layout_marginTop="23dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="3dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/tablet_border_top_left"
+            android:layout_width="15dp"
+            android:layout_height="1dp"
+            android:layout_alignLeft="@+id/TabletLabel"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="15dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/tablet_border_left"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="23dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/tablet_border_right"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="23dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/tablet_border_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/TabletFirstTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAC Address"
+            android:textSize="16sp"
+            android:textColor="@color/TextGray"
+            android:layout_above="@+id/TabletSecondTextView"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="25dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/TabletFirstPlaceholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/TabletSecondPlaceholder"
+            android:layout_marginBottom="15dp"
+            android:layout_centerHorizontal="true"/>
+
+
+        <TextView
+            android:id="@+id/TabletFirstTextView_screen"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@+id/TabletFirstPlaceholder"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_above="@+id/TabletSecondTextView_screen"
+            android:layout_marginBottom="11dp"
+            android:background="@color/White"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:elevation="3dp"/>
+
+
+        <TextView
+            android:id="@+id/TabletSecondTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textSize="16sp"
+            android:textColor="@color/TextGray"
+            android:layout_above="@+id/TabletThirdTextView"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="25dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/TabletSecondPlaceholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/TabletThirdPlaceholder"
+            android:layout_marginBottom="15dp"
+            android:layout_centerHorizontal="true"/>
+
+
+        <TextView
+            android:id="@+id/TabletSecondTextView_screen"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@+id/TabletSecondPlaceholder"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_above="@+id/TabletThirdTextView_screen"
+            android:layout_marginBottom="11dp"
+            android:background="@color/White"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:elevation="3dp"/>
+
+        <TextView
+            android:id="@+id/TabletThirdTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Κωδικός"
+            android:textSize="16sp"
+            android:textColor="@color/TextGray"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:textAlignment="center"/>
+
+
+        <TextView
+            android:id="@+id/TabletThirdPlaceholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+
+        <TextView
+            android:id="@+id/TabletThirdTextView_screen"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/TabletThirdPlaceholder"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/White"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:elevation="3dp"/>
+
+        <TextView
+            android:id="@+id/TabletFourthTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Περιγραφή"
+            android:textSize="16sp"
+            android:textColor="@color/TextGray"
+            android:layout_below="@+id/TabletThirdTextView"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/TabletFourthPlaceholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TabletThirdPlaceholder"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/TabletFourthTextView_screen"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@+id/TabletFourthPlaceholder"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/TabletThirdTextView_screen"
+            android:layout_marginTop="13dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/White"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:elevation="3dp"/>
+
+
+        <TextView
+            android:id="@+id/TabletFifthTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Είναι ενεργό"
+            android:textSize="16sp"
+            android:textColor="@color/TextGray"
+            android:layout_below="@+id/TabletFourthTextView"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/TabletFifthPlaceholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TabletFourthPlaceholder"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/TabletFifthTextView_screen"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@+id/TabletFifthPlaceholder"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/TabletFourthTextView_screen"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/White"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:elevation="3dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Update_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+
+        <TextView
+            android:id="@+id/UpdateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:text="Ενημέρωση"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/update_border_top_right"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="23dp"
+            android:layout_toRightOf="@+id/UpdateLabel"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/update_border_top_left"
+            android:layout_width="15dp"
+            android:layout_height="1dp"
+            android:layout_alignLeft="@+id/UpdateLabel"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="23dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/update_border_left"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="23dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/update_border_right"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="23dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/update_border_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/black" />
+
+
+        <TextView
+            android:id="@+id/UpdateFirstTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/UpdatePlaceholder"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="25dp"
+            android:text="Τελευταία Ενημέρωση"
+            android:textAlignment="center"
+            android:textColor="@color/TextGray"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/UpdateFirstTextView_screen"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:layout_above="@+id/UpdatePlaceholder"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/UpdatePlaceholder"
+            android:background="@color/White"
+            android:elevation="3dp"
+            android:textAlignment="center"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/UpdatePlaceholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+
+        <TextView
+            android:id="@+id/UpdateSecondTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/UpdatePlaceholder"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="5dp"
+            android:text="Τελευταία Αποστολή"
+            android:textAlignment="center"
+            android:textColor="@color/TextGray"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/UpdateSecondTextView_screen"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/UpdatePlaceholder"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/UpdatePlaceholder"
+            android:background="@color/White"
+            android:elevation="3dp"
+            android:textAlignment="center"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Actions_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+
+        <TextView
+            android:id="@+id/ActionsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:text="Ενέργειες"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/actions_border_top_right"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="23dp"
+            android:layout_toRightOf="@+id/ActionsLabel"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/actions_border_top_left"
+            android:layout_width="15dp"
+            android:layout_height="1dp"
+            android:layout_alignLeft="@+id/ActionsLabel"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="23dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/actions_border_left"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="23dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/actions_border_right"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="23dp"
+            android:background="@android:color/black" />
+
+        <View
+            android:id="@+id/actions_border_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/black" />
+
+
+        <Button
+            android:id="@+id/Information_support_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_above="@+id/ActionsPlaceholder"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginLeft="50dp"
+            android:text=" Υποστήριξη "
+            android:textAllCaps="false"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/Information_test_print_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_above="@+id/ActionsPlaceholder"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:text=" Δοκιμαστική Εκτύπωση "
+            android:textAllCaps="false"
+            android:textSize="15sp"/>
+
+
+        <TextView
+            android:id="@+id/ActionsPlaceholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <Button
+            android:id="@+id/Information_server_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ActionsPlaceholder"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="   Ενημέρωση από Server "
+            android:textAllCaps="false"
+            android:drawableLeft="@mipmap/ic_download"
+            android:textSize="18sp"/>
+
+
+
+
+
+    </RelativeLayout>
 
 
 

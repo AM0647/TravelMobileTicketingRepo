@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3C56B5</color>
-    <color name="colorAlmostPrimary">#3949ab</color>
+    <color name="colorAlmostPrimary">#3d4dac</color>
     <color name="colorAlmostPrimarySelected">#303f9f</color>
 
     <color name="colorSecondary">#ff5722</color>
     <color name="colorAlmostSecondary">#f4511e</color>
     <color name="colorAlmostSecondarySelected">#e64a19</color>
+
+
+
+    <color name="colorYellow2">#f0f4c3</color>
+    <color name="defaultButtongray">#D6D7D7</color>
+    <color name="colorcolor">#eddab3</color>
 
 
 
@@ -18,7 +24,9 @@
 
 
     <color name="TrustyBrown">#3e2723</color>
+    <color name="Green">#43a047</color>
     <color name="White">#ffffff</color>
+    <color name="AlmostWhite">#eeeeee</color>
     <color name="Gray">#bdbdbd</color>
     <color name="TextGray">#d7ccc8</color>
 

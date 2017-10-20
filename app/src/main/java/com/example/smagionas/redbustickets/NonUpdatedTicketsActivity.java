@@ -47,7 +47,9 @@ public class NonUpdatedTicketsActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            Intent intent = new Intent(this,TicketIssuanceActivity.class);
+            intent.putExtra("Route name", value1);
+            startActivity(intent);
         }
     }
 
