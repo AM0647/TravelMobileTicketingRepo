@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -109,25 +108,6 @@ public class SetupActivity extends AppCompatActivity
     private void DoNormalRun()
     {
 
-
-
-        TopSetupFragment topSetupFragment = new TopSetupFragment();                                 // Header
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction()
-                .replace(R.id.SetupTopLayout, topSetupFragment)
-                .commit();
-
-        CenterSetupFragment centerSetupFragment = new CenterSetupFragment();                        // Body
-        manager = getSupportFragmentManager();
-        manager.beginTransaction()
-                .replace(R.id.SetupCenterLayout, centerSetupFragment)
-                .commit();
-
-        BottomSetupFragment bottomSetupFragment = new BottomSetupFragment();                        // Footer
-        manager = getSupportFragmentManager();
-        manager.beginTransaction()
-                .replace(R.id.SetupBottomLayout,bottomSetupFragment)
-                .commit();
 
     }
 
