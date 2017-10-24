@@ -2,9 +2,7 @@ package com.example.smagionas.redbustickets;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,8 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.DatePicker;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -26,10 +27,25 @@ import static java.lang.String.valueOf;
 public class DetailListFromRoutesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
+
     public GridView GridViewItems;
     RelativeLayout layout1;
+    Calendar cal;
+    java.util.Date date;
+    DatePicker datepicker;
+    TextView DateDisplayed;
+    ImageButton nextDate;
+
+    int day;
+    int month;
+    int year;
+    int year_picked ;
+    int month_picked ;
+    int day_picked ;
 
     boolean bus_direction_forth;
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +55,115 @@ public class DetailListFromRoutesActivity extends AppCompatActivity
         Bundle extras = getIntent().getExtras();
         bus_direction_forth = extras.getBoolean("Direction Forth");
 
+        DateDisplayed = findViewById(R.id.DateDisplayed);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_routes);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_routes);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        date = new Date();                                                            // Get today's date
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        day = cal.get(Calendar.DAY_OF_MONTH);
+        month = cal.get(Calendar.MONTH);
+        year = cal.get(Calendar.YEAR);
+
+
+        year_picked = year;
+        month_picked = month + 1;
+        day_picked = day;
+
+        DateDisplayed.setText(day_picked + " / " + month_picked + " / " + year_picked);
+
+
+
+        datepicker = findViewById(R.id.datePicker);
+        nextDate = findViewById(R.id.detail_list_from_routes_NextDate);
+
+        datepicker.setMaxDate((new Date().getTime()));
+        datepicker.init(year_picked, month_picked, day_picked, new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {  // Notify every time user picks a new date
+
+                date= new Date();                                                               // Get today's date
+                cal = Calendar.getInstance();
+                cal.setTime(date);
+                int Today_day = cal.get(Calendar.DAY_OF_MONTH);
+                int Today_month = cal.get(Calendar.MONTH) + 1;
+                int Today_year = cal.get(Calendar.YEAR);                                            // Todo don't allow future dates
+
+                year_picked = year;
+                month_picked = monthOfYear;
+                day_picked = dayOfMonth;
+
+
+                if(  (year_picked<= Today_year)  && (month_picked<= Today_month)  &&  (day_picked<= Today_day) ){
+
+                    DateDisplayed.setText(day_picked + " / " + month_picked + " / " + year_picked);
+                    nextDate.setImageResource(R.mipmap.ic_arrow_right_black);
+
+                    if(day_picked   ==  Today_day) nextDate.setImageResource(R.mipmap.ic_arrow_right_gray);
+
+
+                }
+
+
+
+
+
+            }
+        });
+
+    }
+
+
+    public void onPrevDatePressed(View view){
+
+        nextDate.setImageResource(R.mipmap.ic_arrow_right_black);
+        datepicker.updateDate(year_picked,month_picked,day_picked -1);
+
+
+    }
+
+
+    public void onNextDatePressed(View view){
+
+
+        date= new Date();                                                               // Get today's date
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        int Today_day = cal.get(Calendar.DAY_OF_MONTH);
+        int Today_month = cal.get(Calendar.MONTH) + 1;
+        int Today_year = cal.get(Calendar.YEAR);
+
+        if(  (year_picked<= Today_year)  && (month_picked<= Today_month)  &&  (day_picked < Today_day) ){
+
+            datepicker.updateDate(year_picked, month_picked, day_picked + 1);
+            if(day_picked   ==  Today_day) nextDate.setImageResource(R.mipmap.ic_arrow_right_gray);
+
+        }else{
+
+            datepicker.updateDate(Today_year, Today_month, Today_day);
+        }
+
+
+    }
+
+    public void OnDateDisplayedPressed(View view){
+
+        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(),"Date Picker");
+
     }
 
 
@@ -59,22 +171,8 @@ public class DetailListFromRoutesActivity extends AppCompatActivity
     public void onResume() {
         super.onResume();
 
-        layout1 = findViewById(R.id.logs_layout);
-        //layout1.removeView(GridViewItems);
-
-
-
-
-
-        //java.util.Date date= new Date();                                                            // Get today's date
-        //Calendar cal = Calendar.getInstance();
-        //cal.setTime(date);
-        //int day = cal.get(Calendar.DAY_OF_MONTH);
-        //int month = cal.get(Calendar.MONTH);
-        //int year = cal.get(Calendar.YEAR);
-
+        layout1 = findViewById(R.id.logs_layout_detail_list_from_routes);
         Long current_time = System.currentTimeMillis();
-        //current_time = current_time - 300000000;
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(current_time);
         int day1 = cal.get(Calendar.DAY_OF_MONTH);
@@ -128,7 +226,7 @@ public class DetailListFromRoutesActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer_routes = (DrawerLayout) findViewById(R.id.drawer_layout_routes);
+        DrawerLayout drawer_routes = findViewById(R.id.drawer_layout_routes);
         if (drawer_routes.isDrawerOpen(GravityCompat.START)) {
             drawer_routes.closeDrawer(GravityCompat.START);
         } else {
@@ -141,7 +239,7 @@ public class DetailListFromRoutesActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.my_menu, menu);
         return true;
     }
@@ -149,7 +247,7 @@ public class DetailListFromRoutesActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId();
 
@@ -186,7 +284,7 @@ public class DetailListFromRoutesActivity extends AppCompatActivity
             startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_routes);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_routes);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

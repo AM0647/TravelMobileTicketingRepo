@@ -1,23 +1,23 @@
 package com.example.smagionas.redbustickets;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-/**
- * Created by s.magionas on 9/10/2017.
- */
 
-public class ArrayAdapterRoutes extends ArrayAdapter<ObjectLog> {
+class ArrayAdapterRoutes extends ArrayAdapter<ObjectLog> {
 
-    Context mContext;
-    int layoutResourceId;
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
+
+    private Context mContext;
+    private int layoutResourceId;
     ObjectLog data[] = null;
-
-    public ArrayAdapterRoutes(Context mContext, int layoutResourceId, ObjectLog[] data) {
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
+    ArrayAdapterRoutes(Context mContext, int layoutResourceId, ObjectLog[] data) {
 
         super(mContext, layoutResourceId, data);
 
@@ -26,8 +26,9 @@ public class ArrayAdapterRoutes extends ArrayAdapter<ObjectLog> {
         this.data = data;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
 
 
         if(convertView==null){

@@ -3,6 +3,7 @@ package com.example.smagionas.redbustickets;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.view.View;
@@ -73,7 +74,7 @@ public class RoutesActivity extends AppCompatActivity
     {
         super.onResume();
 
-        layout1 = findViewById(R.id.Routes_top_layout);
+        layout1 = findViewById(R.id.Routes_layout);
         layout1.removeView(GridViewItems);
 
         if(bus_direction_forth){
@@ -190,7 +191,7 @@ public class RoutesActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId();
 

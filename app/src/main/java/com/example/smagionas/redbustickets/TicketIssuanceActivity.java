@@ -1,11 +1,11 @@
 package com.example.smagionas.redbustickets;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
-import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,21 +18,15 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Collections;
-
-import static com.example.smagionas.redbustickets.R.string.title_activity_routes;
-import static com.example.smagionas.redbustickets.R.string.title_activity_routes_return;
-import static java.lang.Math.abs;
 import static java.lang.String.valueOf;
 
 
@@ -76,6 +70,7 @@ public class TicketIssuanceActivity extends AppCompatActivity
 //////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +96,9 @@ public class TicketIssuanceActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ab.setTitle(value1);                                                                        // Setting Route title
+        if (ab != null) {
+            ab.setTitle(value1);                                                                        // Setting Route title
+        }
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -202,6 +199,7 @@ public class TicketIssuanceActivity extends AppCompatActivity
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -323,7 +321,7 @@ public class TicketIssuanceActivity extends AppCompatActivity
         layout1.removeView(GridViewItems);
         p = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        p.setMargins(15,10,25,10);
+        p.setMargins(15,10,25,0);
         GridViewItems = new ExpandableHeightGridView(view.getContext());
         GridViewItems.setLayoutParams(p);
         GridViewItems.setNumColumns(1);
@@ -336,8 +334,8 @@ public class TicketIssuanceActivity extends AppCompatActivity
                 TextView buttonDestinationName = view.findViewById(R.id.buttonDestination);
                 String listDestinationName = buttonDestinationName.getText().toString();
 
-                long unique_id = id;
-                String unique_id_string = valueOf(unique_id);
+                //long unique_id = id;
+                //String unique_id_string = valueOf(unique_id);
                 String value_string;
 
                 double normalValue;
@@ -371,7 +369,7 @@ public class TicketIssuanceActivity extends AppCompatActivity
 
                 if(bus_direction_forth){                                                            // TODO     Add real logic behind pricing.  Current one is dummy and causes
                                                                                                     // TODO     array out of bounds exception which is to be expected!!!
-                    double value = ObjectLogDataFinalForth[(int) unique_id].value;
+                    double value = ObjectLogDataFinalForth[(int) id].value;
                     value_string = valueOf(value) + " €";
                     Passenger_Destination.setText(ObjectLogDataFinal[0].Route + " - " + listDestinationName);
                     Destination_Value.setText(value_string);
@@ -404,8 +402,8 @@ public class TicketIssuanceActivity extends AppCompatActivity
 
                 }else{
 
-                    double value = ObjectLogDataFinalForth[(int) unique_id].value;
-                    value_string = (String)valueOf(value) + " €";
+                    double value = ObjectLogDataFinalForth[(int) id].value;
+                    value_string = valueOf(value) + " €";
                     Passenger_Destination.setText(ObjectLogDataFinal[ObjectLogDataFinal.length - 1].Route + " - " + listDestinationName);
                     Destination_Value.setText(value_string);
                     normalValue = value;
@@ -451,36 +449,43 @@ public class TicketIssuanceActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId();
 
         if (id == R.id.nav_first_item) {
             Intent intent = new Intent(this,TicketIssuanceActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_second_item) {
             Intent intent = new Intent(this,DefinedTicketsActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_third_item) {
             Intent intent = new Intent(this,NonUpdatedTicketsActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_fourth_item) {
             Intent intent = new Intent(this,BalanceQuestionActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_fifth_item) {
             Intent intent = new Intent(this,DayQuestionActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_sixth_item) {
             Intent intent = new Intent(this,DetailListActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         }else if (id == R.id.nav_seventh_item) {
             Intent intent = new Intent(this,InformationActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         }else if (id == R.id.nav_eighth_item) {

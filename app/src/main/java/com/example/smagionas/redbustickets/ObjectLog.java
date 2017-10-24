@@ -1,16 +1,15 @@
 package com.example.smagionas.redbustickets;
 
-/**
- * Created by s.magionas on 9/10/2017.
- */
 
-public class ObjectLog {
+class ObjectLog {
 
-    public int itemId;
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
+
+    private int itemId;
     public String Route;
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
-    // constructor
-    public ObjectLog(int itemId, String Route) {
+    ObjectLog(int itemId, String Route) {
         this.itemId = itemId;
         this.Route = Route;
     }

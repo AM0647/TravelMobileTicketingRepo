@@ -5,9 +5,6 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-/**
- * Created by s.magionas on 17/10/2017.
- */
 
 public class ExpandableHeightGridView extends GridView
 {

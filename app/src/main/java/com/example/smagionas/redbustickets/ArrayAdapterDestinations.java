@@ -1,28 +1,26 @@
 package com.example.smagionas.redbustickets;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
-import static java.lang.String.valueOf;
 
-/**
- * Created by s.magionas on 17/10/2017.
- */
 
-public class ArrayAdapterDestinations extends ArrayAdapter<ObjectLog2> {
+class ArrayAdapterDestinations extends ArrayAdapter<ObjectLog2> {
 
-    Context mContext;
-    int layoutResourceId;
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
+
+    private Context mContext;
+    private int layoutResourceId;
     ObjectLog2 data[] = null;
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
-    public ArrayAdapterDestinations(Context mContext, int layoutResourceId, ObjectLog2[] data) {
+    ArrayAdapterDestinations(Context mContext, int layoutResourceId, ObjectLog2[] data) {
 
         super(mContext, layoutResourceId, data);
 
@@ -31,8 +29,9 @@ public class ArrayAdapterDestinations extends ArrayAdapter<ObjectLog2> {
         this.data = data;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
 
 
         if(convertView==null){

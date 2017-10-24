@@ -195,7 +195,8 @@ android:background="@color/colorPrimary"
         android:layout_weight="2"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="19dp">
+        android:layout_marginTop="19dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"

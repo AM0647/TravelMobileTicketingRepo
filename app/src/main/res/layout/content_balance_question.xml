@@ -12,7 +12,7 @@
 
 
     <ImageView
-        android:id="@+id/setup_logo"
+        android:id="@+id/balance_question_logo"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_marginLeft="50dp"
@@ -128,7 +128,7 @@
 
 
     <Button
-        android:id="@+id/non_updated_tickets_server_button"
+        android:id="@+id/balance_question_server_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/BottomPlaceholder"

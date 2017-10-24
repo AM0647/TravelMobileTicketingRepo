@@ -1,6 +1,7 @@
 package com.example.smagionas.redbustickets;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,17 +12,18 @@ import java.util.Calendar;
 
 import static java.lang.String.valueOf;
 
-/**
- * Created by s.magionas on 17/10/2017.
- */
 
-public class ArrayAdapterLogs extends ArrayAdapter<ObjectLog3> {
 
-    Context mContext;
-    int layoutResourceId;
+class ArrayAdapterLogs extends ArrayAdapter<ObjectLog3> {
+
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
+
+    private Context mContext;
+    private int layoutResourceId;
     ObjectLog3 data[] = null;
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
-    public ArrayAdapterLogs(Context mContext, int layoutResourceId, ObjectLog3[] data) {
+    ArrayAdapterLogs(Context mContext, int layoutResourceId, ObjectLog3[] data) {
 
         super(mContext, layoutResourceId, data);
 
@@ -30,8 +32,9 @@ public class ArrayAdapterLogs extends ArrayAdapter<ObjectLog3> {
         this.data = data;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
 
 
         if(convertView==null){
@@ -53,16 +56,16 @@ public class ArrayAdapterLogs extends ArrayAdapter<ObjectLog3> {
         Long current_time = objectLog.dateAndTime;
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(current_time);
-        int day1 = cal.get(Calendar.DAY_OF_MONTH);
-        int month1 = cal.get(Calendar.MONTH) + 1;
-        int year1 = cal.get(Calendar.YEAR);
+        //int day1 = cal.get(Calendar.DAY_OF_MONTH);
+        //int month1 = cal.get(Calendar.MONTH) + 1;
+        //int year1 = cal.get(Calendar.YEAR);
         int hour1 = cal.get(Calendar.HOUR_OF_DAY);
         int minute1 = cal.get(Calendar.MINUTE);
         int second1 = cal.get(Calendar.SECOND);
 
-        String day1_string = valueOf(day1);
-        String month1_string = valueOf(month1);
-        String year1_string = valueOf(year1);
+        //String day1_string = valueOf(day1);
+        //String month1_string = valueOf(month1);
+        //String year1_string = valueOf(year1);
         String hour1_string = valueOf(hour1);
         String minute1_string = valueOf(minute1);
         String second1_string = valueOf(second1);

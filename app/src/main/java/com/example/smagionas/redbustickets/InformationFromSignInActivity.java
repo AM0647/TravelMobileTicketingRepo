@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 public class InformationFromSignInActivity extends AppCompatActivity {
 
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

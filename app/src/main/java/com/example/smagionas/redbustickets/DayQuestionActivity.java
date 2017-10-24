@@ -1,12 +1,9 @@
 package com.example.smagionas.redbustickets;
 
-import android.app.DatePickerDialog;
+
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.ActionBar;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,16 +14,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.RelativeLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 public class DayQuestionActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
+
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
 
     String value1;
     Calendar cal;
@@ -39,7 +35,10 @@ public class DayQuestionActivity extends AppCompatActivity
     int month_picked;
     int day_picked;
     TextView DateDisplayed;
+    ImageButton nextDate;
 
+    boolean bus_direction_forth;
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
 
     @Override
@@ -52,7 +51,7 @@ public class DayQuestionActivity extends AppCompatActivity
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
+        //ActionBar ab = getSupportActionBar();
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -66,6 +65,7 @@ public class DayQuestionActivity extends AppCompatActivity
 
         Bundle extras = getIntent().getExtras();
         value1 = extras.getString("Route name");
+        bus_direction_forth = extras.getBoolean("Direction Forth");
 
         date = new Date();                                                            // Get today's date
         cal = Calendar.getInstance();
@@ -81,8 +81,9 @@ public class DayQuestionActivity extends AppCompatActivity
 
         DateDisplayed.setText(day_picked + " / " + month_picked + " / " + year_picked);
 
-        View view = findViewById(android.R.id.content);
-        datepicker = (DatePicker) findViewById(R.id.datePicker);
+
+        datepicker = findViewById(R.id.datePicker);
+        nextDate = findViewById(R.id.day_question_NextDate);
 
         datepicker.setMaxDate((new Date().getTime()));
         datepicker.init(year_picked, month_picked, day_picked, new DatePicker.OnDateChangedListener() {
@@ -104,7 +105,9 @@ public class DayQuestionActivity extends AppCompatActivity
                 if(  (year_picked<= Today_year)  && (month_picked<= Today_month)  &&  (day_picked<= Today_day) ){
 
                     DateDisplayed.setText(day_picked + " / " + month_picked + " / " + year_picked);
+                    nextDate.setImageResource(R.mipmap.ic_arrow_right_black);
 
+                    if(day_picked   ==  Today_day) nextDate.setImageResource(R.mipmap.ic_arrow_right_gray);
 
                 }
 
@@ -119,7 +122,7 @@ public class DayQuestionActivity extends AppCompatActivity
 
     public void onPrevDatePressed(View view) {
 
-
+        nextDate.setImageResource(R.mipmap.ic_arrow_right_black);
         datepicker.updateDate(year_picked, month_picked, day_picked - 1);
 
 
@@ -137,7 +140,9 @@ public class DayQuestionActivity extends AppCompatActivity
 
         if(  (year_picked<= Today_year)  && (month_picked<= Today_month)  &&  (day_picked < Today_day) ){
 
+
             datepicker.updateDate(year_picked, month_picked, day_picked + 1);
+            if(day_picked   ==  Today_day) nextDate.setImageResource(R.mipmap.ic_arrow_right_gray);
 
         }else{
 
@@ -169,39 +174,46 @@ public class DayQuestionActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId();
 
         if (id == R.id.nav_first_item) {
-            Intent intent = new Intent(this, TicketIssuanceActivity.class);
+            Intent intent = new Intent(this,TicketIssuanceActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_second_item) {
-            Intent intent = new Intent(this, DefinedTicketsActivity.class);
+            Intent intent = new Intent(this,DefinedTicketsActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_third_item) {
-            Intent intent = new Intent(this, NonUpdatedTicketsActivity.class);
+            Intent intent = new Intent(this,NonUpdatedTicketsActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_fourth_item) {
-            Intent intent = new Intent(this, BalanceQuestionActivity.class);
+            Intent intent = new Intent(this,BalanceQuestionActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_fifth_item) {
-            Intent intent = new Intent(this, DayQuestionActivity.class);
+            Intent intent = new Intent(this,DayQuestionActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
         } else if (id == R.id.nav_sixth_item) {
-            Intent intent = new Intent(this, DetailListActivity.class);
+            Intent intent = new Intent(this,DetailListActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
-        } else if (id == R.id.nav_seventh_item) {
-            Intent intent = new Intent(this, InformationActivity.class);
+        }else if (id == R.id.nav_seventh_item) {
+            Intent intent = new Intent(this,InformationActivity.class);
+            intent.putExtra("Direction Forth",bus_direction_forth);
             intent.putExtra("Route name", value1);
             startActivity(intent);
-        } else if (id == R.id.nav_eighth_item) {
+        }else if (id == R.id.nav_eighth_item) {
             Intent intent = new Intent(this, SignInActivity.class);
             startActivity(intent);
         }

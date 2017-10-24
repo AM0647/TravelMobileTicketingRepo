@@ -30,7 +30,7 @@ android:background="@color/colorPrimary"
 
 
         <TextView
-            android:id="@+id/defined_tickets_numpad_code_textfield"
+            android:id="@+id/defined_tickets_from_routes_numpad_code_textfield"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
@@ -42,7 +42,7 @@ android:background="@color/colorPrimary"
             android:textColor="@color/TextGray"/>
 
         <TextView
-            android:id="@+id/defined_tickets_numpad_screen"
+            android:id="@+id/defined_tickets_from_routes_numpad_screen"
             android:layout_column="1"
             android:layout_columnSpan="2"
             android:layout_columnWeight="1"
@@ -61,7 +61,7 @@ android:background="@color/colorPrimary"
             android:elevation="8dp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_1"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_1"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
@@ -71,7 +71,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_2"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_2"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -81,7 +81,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_3"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_3"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -91,7 +91,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_4"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_4"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -101,7 +101,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_5"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_5"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -112,7 +112,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_6"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_6"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -123,7 +123,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_7"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_7"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -133,7 +133,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_8"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_8"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -144,7 +144,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_9"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_9"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -155,7 +155,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_comma"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_comma"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -165,7 +165,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/defined_tickets_numpad_button_0"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_0"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -176,7 +176,7 @@ android:background="@color/colorPrimary"
             android:textSize="35sp"/>
 
         <ImageButton
-            android:id="@+id/defined_tickets_numpad_button_clear"
+            android:id="@+id/defined_tickets_from_routes_numpad_button_clear"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
@@ -195,7 +195,8 @@ android:background="@color/colorPrimary"
         android:layout_weight="2"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="19dp">
+        android:layout_marginTop="19dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -204,7 +205,7 @@ android:background="@color/colorPrimary"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/normal_ticket_button"
+                android:id="@+id/normal_ticket_button_from_routes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:minHeight="100dp"
@@ -217,7 +218,7 @@ android:background="@color/colorPrimary"
                 android:onClick="OnNormalTicketButtonPressed"/>
 
             <Button
-                android:id="@+id/half_ticket_button"
+                android:id="@+id/half_ticket_button_from_routes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:minHeight="100dp"
@@ -230,7 +231,7 @@ android:background="@color/colorPrimary"
                 android:onClick="OnHalfTicketButtonPressed"/>
 
             <Button
-                android:id="@+id/student_50percent_ticket_button"
+                android:id="@+id/student_50percent_ticket_button_from_routes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:minHeight="100dp"
@@ -243,7 +244,7 @@ android:background="@color/colorPrimary"
                 android:onClick="OnStudent50percentTicketButtonPressed"/>
 
             <Button
-                android:id="@+id/student_25percent_ticket_button"
+                android:id="@+id/student_25percent_ticket_button_from_routes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:minHeight="100dp"
@@ -256,7 +257,7 @@ android:background="@color/colorPrimary"
                 android:onClick="OnStudent25percentTicketButtonPressed"/>
 
             <Button
-                android:id="@+id/military_15percent_ticket_button"
+                android:id="@+id/military_15percent_ticket_button_from_routes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:minHeight="100dp"
@@ -269,7 +270,7 @@ android:background="@color/colorPrimary"
                 android:onClick="OnMilitary15percentTicketButtonPressed"/>
 
             <Button
-                android:id="@+id/package_ticket_button"
+                android:id="@+id/package_ticket_button_from_routes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:minHeight="100dp"
@@ -282,7 +283,7 @@ android:background="@color/colorPrimary"
                 android:onClick="OnPackageTicketButtonPressed"/>
 
             <Button
-                android:id="@+id/with_return_ticket_button"
+                android:id="@+id/with_return_ticket_button_from_routes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:minHeight="100dp"
@@ -295,7 +296,7 @@ android:background="@color/colorPrimary"
                 android:onClick="OnWithReturnTicketButtonPressed"/>
 
             <Button
-                android:id="@+id/with_return_25percent_ticket_button"
+                android:id="@+id/with_return_25percent_ticket_button_from_routes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:minHeight="100dp"

@@ -23,7 +23,6 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1.5"
-        android:layout_marginTop="-2dp"
     android:orientation="horizontal">
 
         <ImageButton
@@ -31,7 +30,6 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.2"
-            android:elevation="0dp"
             android:onClick="OnPrevLocationButtonPressed"
             android:src="@mipmap/ic_arrow_left_gray" />
 
@@ -76,13 +74,16 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            android:layout_marginRight="-10dp">
+            android:layout_marginRight="-10dp"
+            android:scrollbars="none">
 
 
             <RelativeLayout
                 android:id="@+id/ticket_issuance_grid_items"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="-8dp"
+                android:layout_marginBottom="-9dp"
                 android:descendantFocusability="blocksDescendants"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -99,14 +100,15 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
             android:id="@+id/TypeOfTicketsLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
             android:layout_marginRight="1dp"
-            android:layout_marginTop="2dp"
-            android:layout_weight="2.5">
+            android:layout_weight="2.5"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="-6dp"
+                android:layout_marginBottom="-6dp"
                 android:orientation="vertical">
 
                 <Button
@@ -118,7 +120,8 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
                     android:onClick="OnNormalTicketButtonPressed"
                     android:text="Κανονικο"
                     android:textAlignment="center"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:stateListAnimator="@null"/>
 
                 <Button
                     android:id="@+id/half_ticket_button"
@@ -130,7 +133,8 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
                     android:onClick="OnHalfTicketButtonPressed"
                     android:text="Μισο"
                     android:textAlignment="center"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:stateListAnimator="@null"/>
 
                 <Button
                     android:id="@+id/student_50percent_ticket_button"
@@ -142,7 +146,8 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
                     android:onClick="OnStudent50percentTicketButtonPressed"
                     android:text="Φοιτητικο \n 50%"
                     android:textAlignment="center"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:stateListAnimator="@null"/>
 
                 <Button
                     android:id="@+id/student_25percent_ticket_button"
@@ -154,7 +159,8 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
                     android:onClick="OnStudent25percentTicketButtonPressed"
                     android:text="Φοιτητικο \n 25%"
                     android:textAlignment="center"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:stateListAnimator="@null"/>
 
                 <Button
                     android:id="@+id/military_15percent_ticket_button"
@@ -166,7 +172,8 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
                     android:onClick="OnMilitary15percentTicketButtonPressed"
                     android:text="Στρατιωτικο \n 15%"
                     android:textAlignment="center"
-                    android:textSize="11sp" />
+                    android:textSize="11sp"
+                    android:stateListAnimator="@null"/>
 
                 <Button
                     android:id="@+id/package_ticket_button"
@@ -178,7 +185,8 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
                     android:onClick="OnPackageTicketButtonPressed"
                     android:text="Δεμα"
                     android:textAlignment="center"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:stateListAnimator="@null"/>
 
                 <Button
                     android:id="@+id/with_return_ticket_button"
@@ -190,7 +198,8 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
                     android:onClick="OnWithReturnTicketButtonPressed"
                     android:text="Με επιστροφη"
                     android:textAlignment="center"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:stateListAnimator="@null"/>
 
                 <Button
                     android:id="@+id/with_return_25percent_ticket_button"
@@ -202,7 +211,8 @@ tools:context="com.example.smagionas.redbustickets.TicketIssuanceActivity">
                     android:onClick="OnWithReturn25percentTicketButtonPressed"
                     android:text="Με επιστροφη \n 25%"
                     android:textAlignment="center"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:stateListAnimator="@null"/>
 
 
             </LinearLayout>

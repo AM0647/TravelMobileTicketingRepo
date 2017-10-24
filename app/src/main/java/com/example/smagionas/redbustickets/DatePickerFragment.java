@@ -1,13 +1,9 @@
 package com.example.smagionas.redbustickets;
 
-/**
- * Created by s.magionas on 19/10/2017.
- */
 
 import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.widget.TextView;
 import android.widget.DatePicker;
 import android.app.Dialog;
@@ -17,9 +13,11 @@ import java.util.Date;
 
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
+
     TextView DateDisplayed;
     DatePicker datepicker;
-
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
         //Use the current date as the default date in the date picker
@@ -45,10 +43,10 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         //Do something with the date chosen by the user
         //TextView tv = (TextView) getActivity().findViewById(R.id.tv);
 
-        datepicker = (DatePicker) getActivity().findViewById(R.id.datePicker);
+        datepicker = getActivity().findViewById(R.id.datePicker);
         datepicker.updateDate(year, monthOfYear + 1, dayOfMonth);
 
-        DateDisplayed = (TextView) getActivity().findViewById(R.id.DateDisplayed);
+        DateDisplayed = getActivity().findViewById(R.id.DateDisplayed);
         DateDisplayed.setText(dayOfMonth + " / " + (monthOfYear+1) + " / " + year);
         //tv.setText("Date changed...");
         //tv.setText(tv.getText() + "\nYear: " + year);

@@ -7,21 +7,128 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="@color/AlmostWhite"
     tools:context="com.example.smagionas.redbustickets.DetailListActivity"
     tools:showIn="@layout/app_bar_detail_list">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="-5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/detail_list_PrevDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@mipmap/ic_arrow_left_black"
+            android:layout_weight="1"
+            android:background="@color/colorSecondary"
+            android:onClick="onPrevDatePressed" />
+
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="98.5dp"
+            android:layout_marginTop="4dp"
+            android:headerBackground="@color/colorSecondary"
+            android:onClick="OnDatePickerPressed"
+            android:visibility="gone"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Αναλυτική κατάσταση"
-            android:textSize="30sp"
-            android:textColor="@color/Black"
-            android:layout_gravity="center"
-            android:textAlignment="center"/>
+            android:id="@+id/DateDisplayed"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="-5dp"
+            android:layout_marginRight="-5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="5"
+            android:background="@color/colorSecondary"
+            android:gravity="center"
+            android:onClick="OnDateDisplayedPressed"
+            android:textColor="@color/TextGray"
+            android:textSize="35sp" />
 
-
+        <ImageButton
+            android:id="@+id/detail_list_NextDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@mipmap/ic_arrow_right_gray"
+            android:layout_weight="1"
+            android:background="@color/colorSecondary"
+            android:onClick="onNextDatePressed" />
 
 
     </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/logs_layout_detail_list"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:background="@color/colorPrimary">
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".8"
+        android:background="@color/AlmostWhite">
+
+
+        <Button
+            android:id="@+id/detail_list_question_server_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/detail_list_placeholder"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="4dp"
+            android:padding="16dp"
+            android:text="  Ερώτηση "
+            android:textAllCaps="false"
+            android:drawableLeft="@mipmap/ic_sync"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/detail_list_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+
+        <Button
+            android:id="@+id/detail_list_print_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/detail_list_placeholder"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="4dp"
+            android:padding="16dp"
+            android:text="  Εκτύπωση "
+            android:textAllCaps="false"
+            android:drawableLeft="@mipmap/ic_printer_black"
+            android:textSize="18sp"/>
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

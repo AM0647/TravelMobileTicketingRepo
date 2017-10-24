@@ -16,15 +16,18 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_marginTop="-6dp"
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/PrevDate"
+            android:id="@+id/day_question_PrevDate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@mipmap/arrow_back_black"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@mipmap/ic_arrow_left_black"
             android:layout_weight="1"
-            android:layout_marginTop="-3dp"
+            android:background="@color/colorSecondary"
             android:onClick="onPrevDatePressed" />
 
 
@@ -41,10 +44,12 @@
         <TextView
             android:id="@+id/DateDisplayed"
             android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_weight="5"
             android:layout_height="match_parent"
-            android:layout_marginTop="3.5dp"
             android:layout_marginBottom="5dp"
+            android:layout_marginLeft="-5dp"
+            android:layout_marginRight="-5dp"
+            android:layout_marginTop="5dp"
             android:background="@color/colorSecondary"
             android:textSize="35sp"
             android:textColor="@color/TextGray"
@@ -52,12 +57,14 @@
             android:onClick="OnDateDisplayedPressed"/>
 
         <ImageButton
-            android:id="@+id/NextDate"
+            android:id="@+id/day_question_NextDate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@mipmap/arrow_front_black"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@mipmap/ic_arrow_right_gray"
             android:layout_weight="1"
-            android:layout_marginTop="-3dp"
+            android:background="@color/colorSecondary"
             android:onClick="onNextDatePressed" />
 
 
@@ -66,22 +73,22 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5">
+        android:layout_weight="7">
 
         <ImageView
-            android:id="@+id/setup_logo"
+            android:id="@+id/day_question_logo"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:layout_above="@+id/MiddlePlaceholder"
+            android:layout_above="@+id/day_question_MiddlePlaceholder"
             android:layout_marginBottom="90dp"
             android:src="@drawable/applogo_white"/>
 
 
 
         <TextView
-            android:id="@+id/MiddleTextView"
+            android:id="@+id/day_question_MiddleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Συνολική Αξία Εισητηρίων"
@@ -93,7 +100,7 @@
 
 
         <TextView
-            android:id="@+id/MiddlePlaceholder"
+            android:id="@+id/day_question_MiddlePlaceholder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -101,11 +108,11 @@
 
 
         <TextView
-            android:id="@+id/MiddleTextView_screen"
+            android:id="@+id/day_question_MiddleTextView_screen"
             android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/MiddlePlaceholder"
+            android:layout_toRightOf="@+id/day_question_MiddlePlaceholder"
             android:layout_marginLeft="15dp"
             android:background="@color/White"
             android:textSize="16sp"
@@ -117,8 +124,8 @@
             android:id="@+id/day_question_server_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/MiddlePlaceholder"
-            android:layout_marginTop="130dp"
+            android:layout_below="@+id/day_question_MiddlePlaceholder"
+            android:layout_marginTop="144dp"
             android:layout_centerHorizontal="true"
             android:padding="16dp"
             android:text="     Ερώτηση Ημέρας"

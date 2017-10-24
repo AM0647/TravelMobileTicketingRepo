@@ -2,25 +2,22 @@ package com.example.smagionas.redbustickets;
 
 
 
+class ObjectLog3 {
 
-/**
- * Created by s.magionas on 9/10/2017.
- */
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
 
-public class ObjectLog3 {
+    long dateAndTime;
+    String route;
+    String from;
+    String to;
+    String type;
+    double value;
+    String tabletUniqueId;
+    int tabletCounter;
+    int driverCounter;
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
-    public long dateAndTime;
-    public String route;
-    public String from;
-    public String to;
-    public String type;
-    public double value;
-    public String tabletUniqueId;
-    public int tabletCounter;
-    public int driverCounter;
-
-    // constructor
-    public ObjectLog3(long dateAndTime, String route, String from, String to, String type, double value, String tabletUniqueId, int tabletCounter, int driverCounter) {
+    ObjectLog3(long dateAndTime, String route, String from, String to, String type, double value, String tabletUniqueId, int tabletCounter, int driverCounter) {
         this.dateAndTime = dateAndTime;
         this.route = route;
         this.from = from;
@@ -29,6 +26,6 @@ public class ObjectLog3 {
         this.value = value;
         this.tabletUniqueId = tabletUniqueId;
         this.tabletCounter = tabletCounter;
-        this.driverCounter = driverCounter;;
+        this.driverCounter = driverCounter;
     }
 }

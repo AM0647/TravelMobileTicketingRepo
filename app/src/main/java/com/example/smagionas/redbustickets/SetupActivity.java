@@ -213,8 +213,8 @@ class BagOfPrimitives {
 
 class myThread extends Thread {
 
-    String Value1;
-    String Value2;
+    private String Value1;
+    private String Value2;
 
     myThread(String Value1, String Value2) {
         this.Value1 = Value1;

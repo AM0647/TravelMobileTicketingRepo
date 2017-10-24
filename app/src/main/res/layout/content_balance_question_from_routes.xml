@@ -13,12 +13,12 @@
 
 
     <ImageView
-        android:id="@+id/setup_logo"
+        android:id="@+id/balance_question_from_routes_logo"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_above="@+id/MiddlePlaceholder"
+        android:layout_above="@+id/MiddlePlaceholder_from_routes"
         android:layout_marginBottom="130dp"
         android:src="@drawable/applogo_white"/>
 
@@ -129,7 +129,7 @@
 
 
     <Button
-        android:id="@+id/non_updated_tickets_from_routes_server_button"
+        android:id="@+id/balance_question_from_routes_server_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/BottomPlaceholder_from_routes"

@@ -1,11 +1,12 @@
 package com.example.smagionas.redbustickets;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,15 +19,17 @@ import android.widget.TextView;
 public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+//////////////////// START OF GLOBAL VARIABLES/////////////////////////
+
     public TextView displayed_value;
     public String value_to_display="";
     public Double value= 0.0;
 
     boolean type_selected = false;
     boolean comma_used = false;
-    boolean has_inputed_value = false;
+    boolean has_inputted_value = false;
     boolean bus_direction_forth;
-
+//////////////////// END OF GLOBAL VARIABLES///////////////////////////
 
 
     @Override
@@ -40,9 +43,8 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
 
-        displayed_value = findViewById(R.id.defined_tickets_numpad_screen);
+        displayed_value = findViewById(R.id.defined_tickets_from_routes_numpad_screen);
         displayed_value.setTextSize(TypedValue.COMPLEX_UNIT_PX,45);
 
         DrawerLayout drawer_routes = findViewById(R.id.drawer_layout_routes);
@@ -59,7 +61,7 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer_routes = (DrawerLayout) findViewById(R.id.drawer_layout_routes);
+        DrawerLayout drawer_routes = findViewById(R.id.drawer_layout_routes);
         if (drawer_routes.isDrawerOpen(GravityCompat.START)) {
             drawer_routes.closeDrawer(GravityCompat.START);
         } else {
@@ -82,23 +84,57 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_0(View view)
     {
 
-        if(type_selected == false){
-            value_to_display = value_to_display+"0";
+        if(!type_selected){
 
-            displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+        if(has_inputted_value) {
+
+
+            if (comma_used) {
+                value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "0" + " €";
+            } else {
+                value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "0" + " €";
+            }
+
+
+
+        }else{
+
+            value_to_display = "0" + " €";
+
         }
+
+        displayed_value.setText(value_to_display);
+        has_inputted_value = true;
+
+    }
 
 
     }
 
     public void OnButtonPressed_1(View view)
     {
-        if(type_selected == false){
-            value_to_display = value_to_display+"1";
+        if(!type_selected){
+
+            if(has_inputted_value) {
+
+
+                if (comma_used) {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "1" + " €";
+                } else {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "1" + " €";
+                }
+
+
+
+            }else{
+
+                value_to_display = "1" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+            has_inputted_value = true;
+
         }
 
 
@@ -108,11 +144,28 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_2(View view)
     {
 
-        if(type_selected == false){
-            value_to_display = value_to_display+"2";
+        if(!type_selected){
+
+            if(has_inputted_value) {
+
+
+                if (comma_used) {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "2" + " €";
+                } else {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "2" + " €";
+                }
+
+
+
+            }else{
+
+                value_to_display = "2" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+            has_inputted_value = true;
+
         }
 
     }
@@ -120,11 +173,28 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_3(View view)
     {
 
-        if(type_selected == false){
-            value_to_display = value_to_display+"3";
+        if(!type_selected){
+
+            if(has_inputted_value) {
+
+
+                if (comma_used) {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "3" + " €";
+                } else {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "3" + " €";
+                }
+
+
+
+            }else{
+
+                value_to_display = "3" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+            has_inputted_value = true;
+
         }
 
     }
@@ -132,11 +202,28 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_4(View view)
     {
 
-        if(type_selected == false){
-            value_to_display = value_to_display+"4";
+        if(!type_selected){
+
+            if(has_inputted_value) {
+
+
+                if (comma_used) {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "4" + " €";
+                } else {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "4" + " €";
+                }
+
+
+
+            }else{
+
+                value_to_display = "4" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+            has_inputted_value = true;
+
         }
 
     }
@@ -144,11 +231,28 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_5(View view)
     {
 
-        if(type_selected == false){
-            value_to_display = value_to_display+"5";
+        if(!type_selected){
+
+            if(has_inputted_value) {
+
+
+                if (comma_used) {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "5" + " €";
+                } else {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "5" + " €";
+                }
+
+
+
+            }else{
+
+                value_to_display = "5" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+            has_inputted_value = true;
+
         }
 
     }
@@ -156,11 +260,28 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_6(View view)
     {
 
-        if(type_selected == false){
-            value_to_display = value_to_display+"6";
+        if(!type_selected){
+
+            if(has_inputted_value) {
+
+
+                if (comma_used) {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "6" + " €";
+                } else {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "6" + " €";
+                }
+
+
+
+            }else{
+
+                value_to_display = "6" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+            has_inputted_value = true;
+
         }
 
     }
@@ -168,11 +289,28 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_7(View view)
     {
 
-        if(type_selected == false){
-            value_to_display = value_to_display+"7";
+        if(!type_selected){
+
+            if(has_inputted_value) {
+
+
+                if (comma_used) {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "7" + " €";
+                } else {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "7" + " €";
+                }
+
+
+
+            }else{
+
+                value_to_display = "7" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+            has_inputted_value = true;
+
         }
 
     }
@@ -180,11 +318,28 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_8(View view)
     {
 
-        if(type_selected == false){
-            value_to_display = value_to_display+"8";
+        if(!type_selected){
+
+            if(has_inputted_value) {
+
+
+                if (comma_used) {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "8" + " €";
+                } else {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "8" + " €";
+                }
+
+
+
+            }else{
+
+                value_to_display = "8" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+            has_inputted_value = true;
+
         }
 
     }
@@ -192,11 +347,28 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_9(View view)
     {
 
-        if(type_selected == false){
-            value_to_display = value_to_display+"9";
+        if(!type_selected){
+
+            if(has_inputted_value) {
+
+
+                if (comma_used) {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 3) + "9" + " €";
+                } else {
+                    value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + "9" + " €";
+                }
+
+
+
+            }else{
+
+                value_to_display = "9" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
-            has_inputed_value = true;
+            has_inputted_value = true;
+
         }
 
     }
@@ -204,10 +376,20 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     public void OnButtonPressed_comma(View view)
     {
 
-        if(  (type_selected == false) && (comma_used == false)  ){
-            value_to_display = value_to_display+".";
+        if(  (!type_selected) && (!comma_used)  ){
+
+            if(has_inputted_value) {
+
+
+                value_to_display = value_to_display.substring(0, value_to_display.length() - 2) + ".0" + " €";
+            }else{
+
+                value_to_display = ".0" + " €";
+
+            }
 
             displayed_value.setText(value_to_display);
+            has_inputted_value = true;
             comma_used = true;
         }
 
@@ -220,19 +402,20 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
         displayed_value.setText(value_to_display);
         type_selected = false;
         comma_used = false;
-        has_inputed_value = false;
+        has_inputted_value = false;
     }
 
 
 
 
 
+    @SuppressLint("SetTextI18n")
     public void OnNormalTicketButtonPressed(View view)
     {
 
-        if(  (type_selected == false) && (has_inputed_value==true)  ){
+        if(  (!type_selected) && (has_inputted_value)  ){
 
-            value = Double.parseDouble(value_to_display);
+            value = Double.parseDouble(value_to_display.substring(0,value_to_display.length() - 2));
 
             value_to_display = String.valueOf(value);
 
@@ -246,12 +429,13 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void OnHalfTicketButtonPressed(View view)
     {
 
-        if(  (type_selected == false) && (has_inputed_value==true)  )  {
+        if(  (!type_selected) && (has_inputted_value)  )  {
 
-            value = Double.parseDouble(value_to_display);
+            value = Double.parseDouble(value_to_display.substring(0,value_to_display.length() - 2));
 
             value_to_display = String.valueOf(value);
 
@@ -265,12 +449,13 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void OnStudent50percentTicketButtonPressed(View view)
     {
 
-        if(  (type_selected == false) && (has_inputed_value==true)  ){
+        if(  (!type_selected) && (has_inputted_value)  ){
 
-            value = Double.parseDouble(value_to_display);
+            value = Double.parseDouble(value_to_display.substring(0,value_to_display.length() - 2));
 
             value_to_display = String.valueOf(value);
 
@@ -284,12 +469,13 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void OnStudent25percentTicketButtonPressed(View view)
     {
 
-        if(  (type_selected == false) && (has_inputed_value==true)  ){
+        if(  (!type_selected) && (has_inputted_value)  ){
 
-            value = Double.parseDouble(value_to_display);
+            value = Double.parseDouble(value_to_display.substring(0,value_to_display.length() - 2));
 
             value_to_display = String.valueOf(value);
 
@@ -303,12 +489,13 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void OnMilitary15percentTicketButtonPressed(View view)
     {
 
-        if(  (type_selected == false) && (has_inputed_value==true)  ){
+        if(  (!type_selected) && (has_inputted_value)  ){
 
-            value = Double.parseDouble(value_to_display);
+            value = Double.parseDouble(value_to_display.substring(0,value_to_display.length() - 2));
 
             value_to_display = String.valueOf(value);
 
@@ -322,12 +509,13 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void OnPackageTicketButtonPressed(View view)
     {
 
-        if(  (type_selected == false) && (has_inputed_value==true)  ){
+        if(  (!type_selected) && (has_inputted_value)  ){
 
-            value = Double.parseDouble(value_to_display);
+            value = Double.parseDouble(value_to_display.substring(0,value_to_display.length() - 2));
 
             value_to_display = String.valueOf(value);
 
@@ -342,12 +530,13 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
 
 
 
+    @SuppressLint("SetTextI18n")
     public void OnWithReturnTicketButtonPressed(View view)
     {
 
-        if(  (type_selected == false) && (has_inputed_value==true)  ){
+        if(  (!type_selected) && (has_inputted_value)  ){
 
-            value = Double.parseDouble(value_to_display);
+            value = Double.parseDouble(value_to_display.substring(0,value_to_display.length() - 2));
 
             value_to_display = String.valueOf(value);
 
@@ -361,12 +550,13 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void OnWithReturn25percentTicketButtonPressed(View view)
     {
 
-        if(  (type_selected == false) && (has_inputed_value==true)  ){
+        if(  (!type_selected) && (has_inputted_value)  ){
 
-            value = Double.parseDouble(value_to_display);
+            value = Double.parseDouble(value_to_display.substring(0,value_to_display.length() - 2));
 
             value_to_display = String.valueOf(value);
 
@@ -382,7 +572,7 @@ public class DefinedTicketsFromRoutesActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId();
 

@@ -90,12 +90,12 @@
             android:layout_below="@+id/layout_KEY"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/placeholder"
+            android:layout_toRightOf="@+id/setup_layout_placeholder"
             android:onClick="onDoneSetupClicked"
             android:src="@mipmap/ic_done_white" />
 
         <TextView
-            android:id="@+id/placeholder"
+            android:id="@+id/setup_layout_placeholder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout_KEY"
@@ -110,7 +110,7 @@
             android:layout_below="@+id/layout_KEY"
             android:layout_marginRight="25dp"
             android:layout_marginTop="15dp"
-            android:layout_toLeftOf="@+id/placeholder"
+            android:layout_toLeftOf="@+id/setup_layout_placeholder"
             android:onClick="onClearSetupClicked"
             android:src="@mipmap/ic_clear_white" />
 
