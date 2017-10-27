@@ -3,15 +3,23 @@ package com.example.smagionas.redbustickets;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
 
 public class SignInActivity extends AppCompatActivity
 {
 
 //////////////////// START OF GLOBAL VARIABLES/////////////////////////
     public TextView displayed_code;
+    RealmConfiguration config;
+    Realm realm;
+
 
     public String code_to_display="";
     public String encrypted_code_to_display = "";
@@ -23,6 +31,32 @@ public class SignInActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
         displayed_code = findViewById(R.id.numpad_screen);
+
+        Realm.init(this);
+
+
+
+        config = new RealmConfiguration.Builder()
+                .name("myrealm")
+                //.encryptionKey(key)
+                .directory(getExternalFilesDir(null))
+                .build();
+        Realm.setDefaultConfiguration(config);
+
+        realm = Realm.getDefaultInstance();
+
+        RealmResults<GUID> Results = realm.where(GUID.class).findAll();
+
+        for(GUID GUID : Results) {
+            Log.d("TAG----SIGN_IN----", GUID.getUnique_id_code());
+        }
+
+        RealmResults<ConnectionInfo> connection_results = realm.where(ConnectionInfo.class).findAll();
+        ConnectionInfo connectionInfo = connection_results.first();
+
+        Toast.makeText(getApplicationContext(),connectionInfo.get_ktel_server_url() , Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),connectionInfo.get_ktel_server_token() , Toast.LENGTH_LONG).show();
+
 
     }
 

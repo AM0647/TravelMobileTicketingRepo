@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smagionas.redbustickets">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".SplashActivity"
+            android:name="com.example.smagionas.redbustickets.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -20,83 +23,83 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SetupActivity"
+            android:name="com.example.smagionas.redbustickets.SetupActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignInActivity"
+            android:name="com.example.smagionas.redbustickets.SignInActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RoutesActivity"
+            android:name="com.example.smagionas.redbustickets.RoutesActivity"
             android:label="@string/title_activity_routes"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".TicketIssuanceActivity"
+            android:name="com.example.smagionas.redbustickets.TicketIssuanceActivity"
             android:label="@string/title_activity_navigation_test"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".DefinedTicketsActivity"
+            android:name="com.example.smagionas.redbustickets.DefinedTicketsActivity"
             android:label="@string/title_activity_defined_tickets"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".DefinedTicketsFromRoutesActivity"
+            android:name="com.example.smagionas.redbustickets.DefinedTicketsFromRoutesActivity"
             android:label="@string/title_activity_defined_tickets_from_routes"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".NonUpdatedTicketsActivity"
+            android:name="com.example.smagionas.redbustickets.NonUpdatedTicketsActivity"
             android:label="@string/title_activity_non_updated_tickets"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".NonUpdatedTicketsFromRoutesActivity"
+            android:name="com.example.smagionas.redbustickets.NonUpdatedTicketsFromRoutesActivity"
             android:label="@string/title_activity_non_updated_tickets_from_routes"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".BalanceQuestionActivity"
+            android:name="com.example.smagionas.redbustickets.BalanceQuestionActivity"
             android:label="@string/title_activity_balance_question"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".BalanceQuestionFromRoutesActivity"
+            android:name="com.example.smagionas.redbustickets.BalanceQuestionFromRoutesActivity"
             android:label="@string/title_activity_balance_question_from_routes"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".DayQuestionActivity"
+            android:name="com.example.smagionas.redbustickets.DayQuestionActivity"
             android:label="@string/title_activity_day_question"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".DayQuestionFromRoutesActivity"
+            android:name="com.example.smagionas.redbustickets.DayQuestionFromRoutesActivity"
             android:label="@string/title_activity_day_question_from_routes"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".DetailListActivity"
+            android:name="com.example.smagionas.redbustickets.DetailListActivity"
             android:label="@string/title_activity_detail_list"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".DetailListFromRoutesActivity"
+            android:name="com.example.smagionas.redbustickets.DetailListFromRoutesActivity"
             android:label="@string/title_activity_detail_list_from_routes"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".InformationActivity"
+            android:name="com.example.smagionas.redbustickets.InformationActivity"
             android:label="@string/title_activity_information"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".InformationFromRoutesActivity"
+            android:name="com.example.smagionas.redbustickets.InformationFromRoutesActivity"
             android:label="@string/title_activity_information_from_routes"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".InformationFromSignInActivity"
+            android:name="com.example.smagionas.redbustickets.InformationFromSignInActivity"
             android:screenOrientation="portrait"/>
     </application>
 </manifest>
